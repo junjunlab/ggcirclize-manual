@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Geom chordDiagram | ggcirclize Reference Book</title>
+  <meta name="description" content="This is a detailed documentation of ggcirclize package." />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Geom chordDiagram | ggcirclize Reference Book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a detailed documentation of ggcirclize package." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Geom chordDiagram | ggcirclize Reference Book" />
+  
+  <meta name="twitter:description" content="This is a detailed documentation of ggcirclize package." />
+  
+
+<meta name="author" content="Jun Zhang" />
+
+
+<meta name="date" content="2023-12-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="geom-genomic-track-layers.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ggChIPvis manual documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i><b>1.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html"><i class="fa fa-check"></i><b>2</b> Low level arcGrobs</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcsectorgrob"><i class="fa fa-check"></i><b>2.1</b> arcSectorGrob</a></li>
+<li class="chapter" data-level="2.2" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcaxisgrob"><i class="fa fa-check"></i><b>2.2</b> arcAxisGrob</a></li>
+<li class="chapter" data-level="2.3" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcpointgrob"><i class="fa fa-check"></i><b>2.3</b> arcPointGrob</a></li>
+<li class="chapter" data-level="2.4" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcsegmentsgrob"><i class="fa fa-check"></i><b>2.4</b> arcSegmentsGrob</a></li>
+<li class="chapter" data-level="2.5" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinesgrob"><i class="fa fa-check"></i><b>2.5</b> arcLinesGrob</a></li>
+<li class="chapter" data-level="2.6" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcrectgrob"><i class="fa fa-check"></i><b>2.6</b> arcRectGrob</a></li>
+<li class="chapter" data-level="2.7" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcpolygongrob"><i class="fa fa-check"></i><b>2.7</b> arcPolygonGrob</a></li>
+<li class="chapter" data-level="2.8" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinksgrob"><i class="fa fa-check"></i><b>2.8</b> arcLinksGrob</a></li>
+<li class="chapter" data-level="2.9" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinks2grob"><i class="fa fa-check"></i><b>2.9</b> arcLinks2Grob</a></li>
+<li class="chapter" data-level="2.10" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arctextgrob"><i class="fa fa-check"></i><b>2.10</b> arcTextGrob</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html"><i class="fa fa-check"></i><b>3</b> Geom arc layers</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpoint"><i class="fa fa-check"></i><b>3.1</b> geom_arcpoint</a></li>
+<li class="chapter" data-level="3.2" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcsegment"><i class="fa fa-check"></i><b>3.2</b> geom_arcsegment</a></li>
+<li class="chapter" data-level="3.3" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcline"><i class="fa fa-check"></i><b>3.3</b> geom_arcline</a></li>
+<li class="chapter" data-level="3.4" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpath"><i class="fa fa-check"></i><b>3.4</b> geom_arcpath</a></li>
+<li class="chapter" data-level="3.5" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpolygon"><i class="fa fa-check"></i><b>3.5</b> geom_arcpolygon</a></li>
+<li class="chapter" data-level="3.6" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcrect"><i class="fa fa-check"></i><b>3.6</b> geom_arcrect</a></li>
+<li class="chapter" data-level="3.7" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arctile"><i class="fa fa-check"></i><b>3.7</b> geom_arctile</a></li>
+<li class="chapter" data-level="3.8" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcbar"><i class="fa fa-check"></i><b>3.8</b> geom_arcbar</a></li>
+<li class="chapter" data-level="3.9" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arccol"><i class="fa fa-check"></i><b>3.9</b> geom_arccol</a></li>
+<li class="chapter" data-level="3.10" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcribbon"><i class="fa fa-check"></i><b>3.10</b> geom_arcribbon</a></li>
+<li class="chapter" data-level="3.11" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcviolin"><i class="fa fa-check"></i><b>3.11</b> geom_arcviolin</a></li>
+<li class="chapter" data-level="3.12" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcboxplot"><i class="fa fa-check"></i><b>3.12</b> geom_arcboxplot</a></li>
+<li class="chapter" data-level="3.13" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcarea"><i class="fa fa-check"></i><b>3.13</b> geom_arcarea</a></li>
+<li class="chapter" data-level="3.14" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcdensity"><i class="fa fa-check"></i><b>3.14</b> geom_arcdensity</a></li>
+<li class="chapter" data-level="3.15" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_archistogram"><i class="fa fa-check"></i><b>3.15</b> geom_archistogram</a></li>
+<li class="chapter" data-level="3.16" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arctext"><i class="fa fa-check"></i><b>3.16</b> geom_arctext</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="geom-track-layers.html"><a href="geom-track-layers.html"><i class="fa fa-check"></i><b>4</b> Geom track layers</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackpoint"><i class="fa fa-check"></i><b>4.1</b> geom_trackpoint</a></li>
+<li class="chapter" data-level="4.2" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_tracktile"><i class="fa fa-check"></i><b>4.2</b> geom_tracktile</a></li>
+<li class="chapter" data-level="4.3" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackbar"><i class="fa fa-check"></i><b>4.3</b> geom_trackbar</a></li>
+<li class="chapter" data-level="4.4" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackcol"><i class="fa fa-check"></i><b>4.4</b> geom_trackcol</a></li>
+<li class="chapter" data-level="4.5" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackdensity"><i class="fa fa-check"></i><b>4.5</b> geom_trackdensity</a></li>
+<li class="chapter" data-level="4.6" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackhist"><i class="fa fa-check"></i><b>4.6</b> geom_trackhist</a></li>
+<li class="chapter" data-level="4.7" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackviolin"><i class="fa fa-check"></i><b>4.7</b> geom_trackviolin</a></li>
+<li class="chapter" data-level="4.8" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackboxplot"><i class="fa fa-check"></i><b>4.8</b> geom_trackboxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html"><i class="fa fa-check"></i><b>5</b> Geom genomic track layers</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#load-genome-data"><i class="fa fa-check"></i><b>5.1</b> Load genome data</a></li>
+<li class="chapter" data-level="5.2" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicpoint"><i class="fa fa-check"></i><b>5.2</b> geom_trackgenomicpoint</a></li>
+<li class="chapter" data-level="5.3" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicrect"><i class="fa fa-check"></i><b>5.3</b> geom_trackgenomicrect</a></li>
+<li class="chapter" data-level="5.4" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomictile"><i class="fa fa-check"></i><b>5.4</b> geom_trackgenomictile</a></li>
+<li class="chapter" data-level="5.5" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicarea"><i class="fa fa-check"></i><b>5.5</b> geom_trackgenomicarea</a></li>
+<li class="chapter" data-level="5.6" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicline"><i class="fa fa-check"></i><b>5.6</b> geom_trackgenomicline</a></li>
+<li class="chapter" data-level="5.7" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicdensity"><i class="fa fa-check"></i><b>5.7</b> geom_trackgenomicdensity</a></li>
+<li class="chapter" data-level="5.8" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicrainfall"><i class="fa fa-check"></i><b>5.8</b> geom_trackgenomicrainfall</a></li>
+<li class="chapter" data-level="5.9" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclink"><i class="fa fa-check"></i><b>5.9</b> geom_trackgenomiclink</a></li>
+<li class="chapter" data-level="5.10" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclabel"><i class="fa fa-check"></i><b>5.10</b> geom_trackgenomiclabel</a></li>
+<li class="chapter" data-level="5.11" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclabel2"><i class="fa fa-check"></i><b>5.11</b> geom_trackgenomiclabel2</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="geom-chorddiagram.html"><a href="geom-chorddiagram.html"><i class="fa fa-check"></i><b>6</b> Geom chordDiagram</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ggcirclize Reference Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="geom-chorddiagram" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Geom chordDiagram<a href="geom-chorddiagram.html#geom-chorddiagram" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>geom_chordDiagram</strong> is used to make chord diagram to show relations of multiple data.</p>
+<hr />
+<p>Parepare data:</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="geom-chorddiagram.html#cb161-1" tabindex="-1"></a><span class="fu">library</span>(ggcirclize)</span>
+<span id="cb161-2"><a href="geom-chorddiagram.html#cb161-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb161-3"><a href="geom-chorddiagram.html#cb161-3" tabindex="-1"></a></span>
+<span id="cb161-4"><a href="geom-chorddiagram.html#cb161-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">999</span>)</span>
+<span id="cb161-5"><a href="geom-chorddiagram.html#cb161-5" tabindex="-1"></a>mat <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="dv">18</span>, <span class="dv">18</span>), <span class="dv">3</span>, <span class="dv">6</span>)</span>
+<span id="cb161-6"><a href="geom-chorddiagram.html#cb161-6" tabindex="-1"></a><span class="fu">rownames</span>(mat) <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;S&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb161-7"><a href="geom-chorddiagram.html#cb161-7" tabindex="-1"></a><span class="fu">colnames</span>(mat) <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;E&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb161-8"><a href="geom-chorddiagram.html#cb161-8" tabindex="-1"></a>mat</span>
+<span id="cb161-9"><a href="geom-chorddiagram.html#cb161-9" tabindex="-1"></a><span class="co">#    E1 E2 E3 E4 E5 E6</span></span>
+<span id="cb161-10"><a href="geom-chorddiagram.html#cb161-10" tabindex="-1"></a><span class="co"># S1  4 14 13 17  5  2</span></span>
+<span id="cb161-11"><a href="geom-chorddiagram.html#cb161-11" tabindex="-1"></a><span class="co"># S2  7  1  6  8 12 15</span></span>
+<span id="cb161-12"><a href="geom-chorddiagram.html#cb161-12" tabindex="-1"></a><span class="co"># S3  9 10  3 16 11 18</span></span>
+<span id="cb161-13"><a href="geom-chorddiagram.html#cb161-13" tabindex="-1"></a></span>
+<span id="cb161-14"><a href="geom-chorddiagram.html#cb161-14" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">from =</span> <span class="fu">rep</span>(<span class="fu">rownames</span>(mat), <span class="at">times =</span> <span class="fu">ncol</span>(mat)),</span>
+<span id="cb161-15"><a href="geom-chorddiagram.html#cb161-15" tabindex="-1"></a>                <span class="at">to =</span> <span class="fu">rep</span>(<span class="fu">colnames</span>(mat), <span class="at">each =</span> <span class="fu">nrow</span>(mat)),</span>
+<span id="cb161-16"><a href="geom-chorddiagram.html#cb161-16" tabindex="-1"></a>                <span class="at">value =</span> <span class="fu">as.vector</span>(mat),</span>
+<span id="cb161-17"><a href="geom-chorddiagram.html#cb161-17" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb161-18"><a href="geom-chorddiagram.html#cb161-18" tabindex="-1"></a><span class="fu">head</span>(df,<span class="dv">3</span>)</span>
+<span id="cb161-19"><a href="geom-chorddiagram.html#cb161-19" tabindex="-1"></a><span class="co">#   from to value</span></span>
+<span id="cb161-20"><a href="geom-chorddiagram.html#cb161-20" tabindex="-1"></a><span class="co"># 1   S1 E1     4</span></span>
+<span id="cb161-21"><a href="geom-chorddiagram.html#cb161-21" tabindex="-1"></a><span class="co"># 2   S2 E1     7</span></span>
+<span id="cb161-22"><a href="geom-chorddiagram.html#cb161-22" tabindex="-1"></a><span class="co"># 3   S3 E1     9</span></span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="geom-chorddiagram.html#cb162-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r =</span> <span class="fl">0.8</span>,</span>
+<span id="cb162-2"><a href="geom-chorddiagram.html#cb162-2" tabindex="-1"></a>                  <span class="at">from =</span> from,<span class="at">to =</span> to,<span class="at">value =</span> value)) <span class="sc">+</span></span>
+<span id="cb162-3"><a href="geom-chorddiagram.html#cb162-3" tabindex="-1"></a>  <span class="fu">geom_chordDiagram</span>()</span></code></pre></div>
+<p><img src="local_images/155.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="geom-chorddiagram.html#cb163-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r =</span> <span class="fl">0.8</span>,</span>
+<span id="cb163-2"><a href="geom-chorddiagram.html#cb163-2" tabindex="-1"></a>                  <span class="at">from =</span> from,<span class="at">to =</span> to,<span class="at">value =</span> value)) <span class="sc">+</span></span>
+<span id="cb163-3"><a href="geom-chorddiagram.html#cb163-3" tabindex="-1"></a>  <span class="fu">geom_chordDiagram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> from))</span></code></pre></div>
+<p><img src="local_images/156.png" style="width:100.0%" /></p>
+<p>Change the orders:</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="geom-chorddiagram.html#cb164-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r =</span> <span class="fl">0.8</span>,</span>
+<span id="cb164-2"><a href="geom-chorddiagram.html#cb164-2" tabindex="-1"></a>                  <span class="at">from =</span> from,<span class="at">to =</span> to,<span class="at">value =</span> value)) <span class="sc">+</span></span>
+<span id="cb164-3"><a href="geom-chorddiagram.html#cb164-3" tabindex="-1"></a>  <span class="fu">geom_chordDiagram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> from),</span>
+<span id="cb164-4"><a href="geom-chorddiagram.html#cb164-4" tabindex="-1"></a>                    <span class="at">sector.order =</span> <span class="fu">c</span>(<span class="st">&quot;S2&quot;</span>,<span class="st">&quot;S1&quot;</span>,<span class="st">&quot;S3&quot;</span>,<span class="fu">paste0</span>(<span class="st">&quot;E&quot;</span>,<span class="dv">6</span><span class="sc">:</span><span class="dv">1</span>)))</span></code></pre></div>
+<p><img src="local_images/157.png" style="width:100.0%" /></p>
+<p>Highlight the <strong>from</strong> direction:</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="geom-chorddiagram.html#cb165-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r =</span> <span class="fl">0.8</span>,</span>
+<span id="cb165-2"><a href="geom-chorddiagram.html#cb165-2" tabindex="-1"></a>                  <span class="at">from =</span> from,<span class="at">to =</span> to,<span class="at">value =</span> value)) <span class="sc">+</span></span>
+<span id="cb165-3"><a href="geom-chorddiagram.html#cb165-3" tabindex="-1"></a>  <span class="fu">geom_chordDiagram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> from),</span>
+<span id="cb165-4"><a href="geom-chorddiagram.html#cb165-4" tabindex="-1"></a>                    <span class="at">directional =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="local_images/158.png" style="width:100.0%" /></p>
+<p>Highlight the <strong>to</strong> direction:</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="geom-chorddiagram.html#cb166-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r =</span> <span class="fl">0.8</span>,</span>
+<span id="cb166-2"><a href="geom-chorddiagram.html#cb166-2" tabindex="-1"></a>                  <span class="at">from =</span> from,<span class="at">to =</span> to,<span class="at">value =</span> value)) <span class="sc">+</span></span>
+<span id="cb166-3"><a href="geom-chorddiagram.html#cb166-3" tabindex="-1"></a>  <span class="fu">geom_chordDiagram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> from),</span>
+<span id="cb166-4"><a href="geom-chorddiagram.html#cb166-4" tabindex="-1"></a>                    <span class="at">directional =</span> <span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="local_images/159.png" style="width:100.0%" /></p>
+<p>Add arrows:</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="geom-chorddiagram.html#cb167-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r =</span> <span class="fl">0.8</span>,</span>
+<span id="cb167-2"><a href="geom-chorddiagram.html#cb167-2" tabindex="-1"></a>                  <span class="at">from =</span> from,<span class="at">to =</span> to,<span class="at">value =</span> value)) <span class="sc">+</span></span>
+<span id="cb167-3"><a href="geom-chorddiagram.html#cb167-3" tabindex="-1"></a>  <span class="fu">geom_chordDiagram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> from),</span>
+<span id="cb167-4"><a href="geom-chorddiagram.html#cb167-4" tabindex="-1"></a>                    <span class="at">directional =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb167-5"><a href="geom-chorddiagram.html#cb167-5" tabindex="-1"></a>                    <span class="at">start.arrow =</span> T,<span class="at">end.arrow =</span> T,<span class="at">arrow.len =</span> <span class="fl">0.06</span>)</span></code></pre></div>
+<p><img src="local_images/160.png" style="width:100.0%" /></p>
+<p>Add curve lines:</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="geom-chorddiagram.html#cb168-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r =</span> <span class="fl">0.8</span>,</span>
+<span id="cb168-2"><a href="geom-chorddiagram.html#cb168-2" tabindex="-1"></a>                  <span class="at">from =</span> from,<span class="at">to =</span> to,<span class="at">value =</span> value)) <span class="sc">+</span></span>
+<span id="cb168-3"><a href="geom-chorddiagram.html#cb168-3" tabindex="-1"></a>  <span class="fu">geom_chordDiagram</span>(<span class="fu">aes</span>(<span class="at">color =</span> from,<span class="at">fill =</span> from),</span>
+<span id="cb168-4"><a href="geom-chorddiagram.html#cb168-4" tabindex="-1"></a>                    <span class="at">link2line =</span> T,</span>
+<span id="cb168-5"><a href="geom-chorddiagram.html#cb168-5" tabindex="-1"></a>                    <span class="at">curve.arrow =</span> <span class="fu">arrow</span>(<span class="at">type =</span> <span class="st">&quot;closed&quot;</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>,<span class="st">&quot;cm&quot;</span>)))</span></code></pre></div>
+<p><img src="local_images/161.png" style="width:100.0%" /></p>
+<p>If the names overlap for <strong>from</strong> and <strong>to</strong> variable:</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="geom-chorddiagram.html#cb169-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
+<span id="cb169-2"><a href="geom-chorddiagram.html#cb169-2" tabindex="-1"></a>matx <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">50</span>,<span class="dv">1</span>),<span class="dv">15</span>,<span class="at">replace =</span> T), <span class="dv">3</span>)</span>
+<span id="cb169-3"><a href="geom-chorddiagram.html#cb169-3" tabindex="-1"></a><span class="fu">colnames</span>(matx) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb169-4"><a href="geom-chorddiagram.html#cb169-4" tabindex="-1"></a><span class="fu">rownames</span>(matx) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb169-5"><a href="geom-chorddiagram.html#cb169-5" tabindex="-1"></a>matx</span>
+<span id="cb169-6"><a href="geom-chorddiagram.html#cb169-6" tabindex="-1"></a><span class="co">#    C1 C2 C3 C4 C5</span></span>
+<span id="cb169-7"><a href="geom-chorddiagram.html#cb169-7" tabindex="-1"></a><span class="co"># C1 14 47 35 49 36</span></span>
+<span id="cb169-8"><a href="geom-chorddiagram.html#cb169-8" tabindex="-1"></a><span class="co"># C2 20 25  8 45 47</span></span>
+<span id="cb169-9"><a href="geom-chorddiagram.html#cb169-9" tabindex="-1"></a><span class="co"># C3 19  5 26 10  8</span></span>
+<span id="cb169-10"><a href="geom-chorddiagram.html#cb169-10" tabindex="-1"></a></span>
+<span id="cb169-11"><a href="geom-chorddiagram.html#cb169-11" tabindex="-1"></a>df <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(matx)</span>
+<span id="cb169-12"><a href="geom-chorddiagram.html#cb169-12" tabindex="-1"></a><span class="fu">colnames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;from&quot;</span>,<span class="st">&quot;to&quot;</span>,<span class="st">&quot;value&quot;</span>)</span>
+<span id="cb169-13"><a href="geom-chorddiagram.html#cb169-13" tabindex="-1"></a></span>
+<span id="cb169-14"><a href="geom-chorddiagram.html#cb169-14" tabindex="-1"></a><span class="co"># check</span></span>
+<span id="cb169-15"><a href="geom-chorddiagram.html#cb169-15" tabindex="-1"></a><span class="fu">head</span>(df,<span class="dv">3</span>)</span>
+<span id="cb169-16"><a href="geom-chorddiagram.html#cb169-16" tabindex="-1"></a><span class="co">#   from to value</span></span>
+<span id="cb169-17"><a href="geom-chorddiagram.html#cb169-17" tabindex="-1"></a><span class="co"># 1   C1 C1    14</span></span>
+<span id="cb169-18"><a href="geom-chorddiagram.html#cb169-18" tabindex="-1"></a><span class="co"># 2   C2 C1    20</span></span>
+<span id="cb169-19"><a href="geom-chorddiagram.html#cb169-19" tabindex="-1"></a><span class="co"># 3   C3 C1    19</span></span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="geom-chorddiagram.html#cb170-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r =</span> <span class="fl">0.8</span>,</span>
+<span id="cb170-2"><a href="geom-chorddiagram.html#cb170-2" tabindex="-1"></a>                  <span class="at">from =</span> from,<span class="at">to =</span> to,<span class="at">value =</span> value)) <span class="sc">+</span></span>
+<span id="cb170-3"><a href="geom-chorddiagram.html#cb170-3" tabindex="-1"></a>  <span class="fu">geom_chordDiagram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> from))</span></code></pre></div>
+<p><img src="local_images/162.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="geom-chorddiagram.html#cb171-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r =</span> <span class="fl">0.8</span>,</span>
+<span id="cb171-2"><a href="geom-chorddiagram.html#cb171-2" tabindex="-1"></a>                  <span class="at">from =</span> from,<span class="at">to =</span> to,<span class="at">value =</span> value)) <span class="sc">+</span></span>
+<span id="cb171-3"><a href="geom-chorddiagram.html#cb171-3" tabindex="-1"></a>  <span class="fu">geom_chordDiagram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> from),<span class="at">directional =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="local_images/163.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="geom-chorddiagram.html#cb172-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r =</span> <span class="fl">0.8</span>,</span>
+<span id="cb172-2"><a href="geom-chorddiagram.html#cb172-2" tabindex="-1"></a>                  <span class="at">from =</span> from,<span class="at">to =</span> to,<span class="at">value =</span> value)) <span class="sc">+</span></span>
+<span id="cb172-3"><a href="geom-chorddiagram.html#cb172-3" tabindex="-1"></a>  <span class="fu">geom_chordDiagram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> from),<span class="at">directional =</span> <span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="local_images/164.png" style="width:100.0%" /></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="geom-genomic-track-layers.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-Geom_chrodDiagram_layers.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

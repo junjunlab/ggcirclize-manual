@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Geom genomic track layers | ggcirclize Reference Book</title>
+  <meta name="description" content="This is a detailed documentation of ggcirclize package." />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Geom genomic track layers | ggcirclize Reference Book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a detailed documentation of ggcirclize package." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Geom genomic track layers | ggcirclize Reference Book" />
+  
+  <meta name="twitter:description" content="This is a detailed documentation of ggcirclize package." />
+  
+
+<meta name="author" content="Jun Zhang" />
+
+
+<meta name="date" content="2023-12-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="geom-track-layers.html"/>
+<link rel="next" href="geom-chorddiagram.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ggChIPvis manual documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i><b>1.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html"><i class="fa fa-check"></i><b>2</b> Low level arcGrobs</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcsectorgrob"><i class="fa fa-check"></i><b>2.1</b> arcSectorGrob</a></li>
+<li class="chapter" data-level="2.2" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcaxisgrob"><i class="fa fa-check"></i><b>2.2</b> arcAxisGrob</a></li>
+<li class="chapter" data-level="2.3" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcpointgrob"><i class="fa fa-check"></i><b>2.3</b> arcPointGrob</a></li>
+<li class="chapter" data-level="2.4" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcsegmentsgrob"><i class="fa fa-check"></i><b>2.4</b> arcSegmentsGrob</a></li>
+<li class="chapter" data-level="2.5" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinesgrob"><i class="fa fa-check"></i><b>2.5</b> arcLinesGrob</a></li>
+<li class="chapter" data-level="2.6" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcrectgrob"><i class="fa fa-check"></i><b>2.6</b> arcRectGrob</a></li>
+<li class="chapter" data-level="2.7" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcpolygongrob"><i class="fa fa-check"></i><b>2.7</b> arcPolygonGrob</a></li>
+<li class="chapter" data-level="2.8" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinksgrob"><i class="fa fa-check"></i><b>2.8</b> arcLinksGrob</a></li>
+<li class="chapter" data-level="2.9" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinks2grob"><i class="fa fa-check"></i><b>2.9</b> arcLinks2Grob</a></li>
+<li class="chapter" data-level="2.10" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arctextgrob"><i class="fa fa-check"></i><b>2.10</b> arcTextGrob</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html"><i class="fa fa-check"></i><b>3</b> Geom arc layers</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpoint"><i class="fa fa-check"></i><b>3.1</b> geom_arcpoint</a></li>
+<li class="chapter" data-level="3.2" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcsegment"><i class="fa fa-check"></i><b>3.2</b> geom_arcsegment</a></li>
+<li class="chapter" data-level="3.3" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcline"><i class="fa fa-check"></i><b>3.3</b> geom_arcline</a></li>
+<li class="chapter" data-level="3.4" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpath"><i class="fa fa-check"></i><b>3.4</b> geom_arcpath</a></li>
+<li class="chapter" data-level="3.5" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpolygon"><i class="fa fa-check"></i><b>3.5</b> geom_arcpolygon</a></li>
+<li class="chapter" data-level="3.6" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcrect"><i class="fa fa-check"></i><b>3.6</b> geom_arcrect</a></li>
+<li class="chapter" data-level="3.7" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arctile"><i class="fa fa-check"></i><b>3.7</b> geom_arctile</a></li>
+<li class="chapter" data-level="3.8" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcbar"><i class="fa fa-check"></i><b>3.8</b> geom_arcbar</a></li>
+<li class="chapter" data-level="3.9" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arccol"><i class="fa fa-check"></i><b>3.9</b> geom_arccol</a></li>
+<li class="chapter" data-level="3.10" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcribbon"><i class="fa fa-check"></i><b>3.10</b> geom_arcribbon</a></li>
+<li class="chapter" data-level="3.11" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcviolin"><i class="fa fa-check"></i><b>3.11</b> geom_arcviolin</a></li>
+<li class="chapter" data-level="3.12" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcboxplot"><i class="fa fa-check"></i><b>3.12</b> geom_arcboxplot</a></li>
+<li class="chapter" data-level="3.13" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcarea"><i class="fa fa-check"></i><b>3.13</b> geom_arcarea</a></li>
+<li class="chapter" data-level="3.14" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcdensity"><i class="fa fa-check"></i><b>3.14</b> geom_arcdensity</a></li>
+<li class="chapter" data-level="3.15" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_archistogram"><i class="fa fa-check"></i><b>3.15</b> geom_archistogram</a></li>
+<li class="chapter" data-level="3.16" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arctext"><i class="fa fa-check"></i><b>3.16</b> geom_arctext</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="geom-track-layers.html"><a href="geom-track-layers.html"><i class="fa fa-check"></i><b>4</b> Geom track layers</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackpoint"><i class="fa fa-check"></i><b>4.1</b> geom_trackpoint</a></li>
+<li class="chapter" data-level="4.2" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_tracktile"><i class="fa fa-check"></i><b>4.2</b> geom_tracktile</a></li>
+<li class="chapter" data-level="4.3" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackbar"><i class="fa fa-check"></i><b>4.3</b> geom_trackbar</a></li>
+<li class="chapter" data-level="4.4" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackcol"><i class="fa fa-check"></i><b>4.4</b> geom_trackcol</a></li>
+<li class="chapter" data-level="4.5" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackdensity"><i class="fa fa-check"></i><b>4.5</b> geom_trackdensity</a></li>
+<li class="chapter" data-level="4.6" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackhist"><i class="fa fa-check"></i><b>4.6</b> geom_trackhist</a></li>
+<li class="chapter" data-level="4.7" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackviolin"><i class="fa fa-check"></i><b>4.7</b> geom_trackviolin</a></li>
+<li class="chapter" data-level="4.8" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackboxplot"><i class="fa fa-check"></i><b>4.8</b> geom_trackboxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html"><i class="fa fa-check"></i><b>5</b> Geom genomic track layers</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#load-genome-data"><i class="fa fa-check"></i><b>5.1</b> Load genome data</a></li>
+<li class="chapter" data-level="5.2" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicpoint"><i class="fa fa-check"></i><b>5.2</b> geom_trackgenomicpoint</a></li>
+<li class="chapter" data-level="5.3" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicrect"><i class="fa fa-check"></i><b>5.3</b> geom_trackgenomicrect</a></li>
+<li class="chapter" data-level="5.4" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomictile"><i class="fa fa-check"></i><b>5.4</b> geom_trackgenomictile</a></li>
+<li class="chapter" data-level="5.5" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicarea"><i class="fa fa-check"></i><b>5.5</b> geom_trackgenomicarea</a></li>
+<li class="chapter" data-level="5.6" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicline"><i class="fa fa-check"></i><b>5.6</b> geom_trackgenomicline</a></li>
+<li class="chapter" data-level="5.7" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicdensity"><i class="fa fa-check"></i><b>5.7</b> geom_trackgenomicdensity</a></li>
+<li class="chapter" data-level="5.8" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicrainfall"><i class="fa fa-check"></i><b>5.8</b> geom_trackgenomicrainfall</a></li>
+<li class="chapter" data-level="5.9" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclink"><i class="fa fa-check"></i><b>5.9</b> geom_trackgenomiclink</a></li>
+<li class="chapter" data-level="5.10" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclabel"><i class="fa fa-check"></i><b>5.10</b> geom_trackgenomiclabel</a></li>
+<li class="chapter" data-level="5.11" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclabel2"><i class="fa fa-check"></i><b>5.11</b> geom_trackgenomiclabel2</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="geom-chorddiagram.html"><a href="geom-chorddiagram.html"><i class="fa fa-check"></i><b>6</b> Geom chordDiagram</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ggcirclize Reference Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="geom-genomic-track-layers" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Geom genomic track layers<a href="geom-genomic-track-layers.html#geom-genomic-track-layers" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>There are also some geom layers to visualize genomic data on genome. There have been human(hg38,hg19) and mouse(mm39,mm10,mm9) cytoband data and chromosome length data in ggcirclize package.</p>
+<p>Most of the genomic track layers need <strong>chr,gstart,gend</strong> basic mapping variables. Besides you need
+supply <strong>chrom_data</strong> parameters to define the chromosome length.</p>
+<div id="load-genome-data" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Load genome data<a href="geom-genomic-track-layers.html#load-genome-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First we load hg19 cytoband and chromosome size:</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="geom-genomic-track-layers.html#cb124-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;hg19_chrom_info&quot;</span>)</span>
+<span id="cb124-2"><a href="geom-genomic-track-layers.html#cb124-2" tabindex="-1"></a>chrom_hg19 <span class="ot">&lt;-</span> hg19_chrom_info<span class="sc">$</span>chromsize</span>
+<span id="cb124-3"><a href="geom-genomic-track-layers.html#cb124-3" tabindex="-1"></a></span>
+<span id="cb124-4"><a href="geom-genomic-track-layers.html#cb124-4" tabindex="-1"></a><span class="co"># check</span></span>
+<span id="cb124-5"><a href="geom-genomic-track-layers.html#cb124-5" tabindex="-1"></a><span class="fu">head</span>(chrom_hg19,<span class="dv">3</span>)</span>
+<span id="cb124-6"><a href="geom-genomic-track-layers.html#cb124-6" tabindex="-1"></a><span class="co">#     V1        V2</span></span>
+<span id="cb124-7"><a href="geom-genomic-track-layers.html#cb124-7" tabindex="-1"></a><span class="co"># 1 chr1 249250621</span></span>
+<span id="cb124-8"><a href="geom-genomic-track-layers.html#cb124-8" tabindex="-1"></a><span class="co"># 2 chr2 243199373</span></span>
+<span id="cb124-9"><a href="geom-genomic-track-layers.html#cb124-9" tabindex="-1"></a><span class="co"># 3 chr3 198022430</span></span>
+<span id="cb124-10"><a href="geom-genomic-track-layers.html#cb124-10" tabindex="-1"></a></span>
+<span id="cb124-11"><a href="geom-genomic-track-layers.html#cb124-11" tabindex="-1"></a>cytoband_hg19 <span class="ot">&lt;-</span> hg19_chrom_info<span class="sc">$</span>cytoband</span>
+<span id="cb124-12"><a href="geom-genomic-track-layers.html#cb124-12" tabindex="-1"></a></span>
+<span id="cb124-13"><a href="geom-genomic-track-layers.html#cb124-13" tabindex="-1"></a><span class="co"># check</span></span>
+<span id="cb124-14"><a href="geom-genomic-track-layers.html#cb124-14" tabindex="-1"></a><span class="fu">head</span>(cytoband_hg19,<span class="dv">3</span>)</span>
+<span id="cb124-15"><a href="geom-genomic-track-layers.html#cb124-15" tabindex="-1"></a><span class="co">#    chr   start     end   band  stain</span></span>
+<span id="cb124-16"><a href="geom-genomic-track-layers.html#cb124-16" tabindex="-1"></a><span class="co"># 1 chr1       0 2300000 p36.33   gneg</span></span>
+<span id="cb124-17"><a href="geom-genomic-track-layers.html#cb124-17" tabindex="-1"></a><span class="co"># 2 chr1 2300000 5400000 p36.32 gpos25</span></span>
+<span id="cb124-18"><a href="geom-genomic-track-layers.html#cb124-18" tabindex="-1"></a><span class="co"># 3 chr1 5400000 7200000 p36.31   gneg</span></span></code></pre></div>
+<p>Generate test data:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="geom-genomic-track-layers.html#cb125-1" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">300</span>)</span>
+<span id="cb125-2"><a href="geom-genomic-track-layers.html#cb125-2" tabindex="-1"></a></span>
+<span id="cb125-3"><a href="geom-genomic-track-layers.html#cb125-3" tabindex="-1"></a><span class="co"># check</span></span>
+<span id="cb125-4"><a href="geom-genomic-track-layers.html#cb125-4" tabindex="-1"></a><span class="fu">head</span>(bed,<span class="dv">3</span>)</span>
+<span id="cb125-5"><a href="geom-genomic-track-layers.html#cb125-5" tabindex="-1"></a><span class="co">#    chr    start      end      value1</span></span>
+<span id="cb125-6"><a href="geom-genomic-track-layers.html#cb125-6" tabindex="-1"></a><span class="co"># 1 chr1   241643   651934  0.65579256</span></span>
+<span id="cb125-7"><a href="geom-genomic-track-layers.html#cb125-7" tabindex="-1"></a><span class="co"># 2 chr1 11498530 20934324 -1.14565565</span></span>
+<span id="cb125-8"><a href="geom-genomic-track-layers.html#cb125-8" tabindex="-1"></a><span class="co"># 3 chr1 22192283 23811229  0.09296219</span></span></code></pre></div>
+</div>
+<div id="geom_trackgenomicpoint" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> geom_trackgenomicpoint<a href="geom-genomic-track-layers.html#geom_trackgenomicpoint" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="geom-genomic-track-layers.html#cb126-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb126-2"><a href="geom-genomic-track-layers.html#cb126-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb126-3"><a href="geom-genomic-track-layers.html#cb126-3" tabindex="-1"></a>                   <span class="at">value =</span> value1)) <span class="sc">+</span></span>
+<span id="cb126-4"><a href="geom-genomic-track-layers.html#cb126-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/122.png" style="width:100.0%" /></p>
+<p>Mapping with color:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="geom-genomic-track-layers.html#cb127-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb127-2"><a href="geom-genomic-track-layers.html#cb127-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb127-3"><a href="geom-genomic-track-layers.html#cb127-3" tabindex="-1"></a>                   <span class="at">color =</span> chr,</span>
+<span id="cb127-4"><a href="geom-genomic-track-layers.html#cb127-4" tabindex="-1"></a>                   <span class="at">value =</span> value1)) <span class="sc">+</span></span>
+<span id="cb127-5"><a href="geom-genomic-track-layers.html#cb127-5" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/123.png" style="width:100.0%" /></p>
+<p><strong>space=fixed</strong> can make the size of each sector be same:</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="geom-genomic-track-layers.html#cb128-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb128-2"><a href="geom-genomic-track-layers.html#cb128-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb128-3"><a href="geom-genomic-track-layers.html#cb128-3" tabindex="-1"></a>                   <span class="at">color =</span> chr,</span>
+<span id="cb128-4"><a href="geom-genomic-track-layers.html#cb128-4" tabindex="-1"></a>                   <span class="at">value =</span> value1)) <span class="sc">+</span></span>
+<span id="cb128-5"><a href="geom-genomic-track-layers.html#cb128-5" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="at">chrom_data =</span> chrom_hg19,</span>
+<span id="cb128-6"><a href="geom-genomic-track-layers.html#cb128-6" tabindex="-1"></a>                         <span class="at">space =</span> <span class="st">&quot;fixed&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/124.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackgenomicrect" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> geom_trackgenomicrect<a href="geom-genomic-track-layers.html#geom_trackgenomicrect" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="geom-genomic-track-layers.html#cb129-1" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">300</span>)</span>
+<span id="cb129-2"><a href="geom-genomic-track-layers.html#cb129-2" tabindex="-1"></a>bed <span class="ot">&lt;-</span> <span class="fu">subset</span>(bed,chr <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;chr1&quot;</span>,<span class="st">&quot;chr2&quot;</span>,<span class="st">&quot;chr3&quot;</span>,<span class="st">&quot;chr4&quot;</span>))</span>
+<span id="cb129-3"><a href="geom-genomic-track-layers.html#cb129-3" tabindex="-1"></a>bed<span class="sc">$</span>ymin <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>),<span class="fu">nrow</span>(bed),<span class="at">replace =</span> T)</span>
+<span id="cb129-4"><a href="geom-genomic-track-layers.html#cb129-4" tabindex="-1"></a>bed<span class="sc">$</span>ymax <span class="ot">&lt;-</span> bed<span class="sc">$</span>ymin <span class="sc">+</span> <span class="fl">0.2</span></span>
+<span id="cb129-5"><a href="geom-genomic-track-layers.html#cb129-5" tabindex="-1"></a>bed<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">sample</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],<span class="fu">nrow</span>(bed),<span class="at">replace =</span> T)</span>
+<span id="cb129-6"><a href="geom-genomic-track-layers.html#cb129-6" tabindex="-1"></a></span>
+<span id="cb129-7"><a href="geom-genomic-track-layers.html#cb129-7" tabindex="-1"></a><span class="co"># check</span></span>
+<span id="cb129-8"><a href="geom-genomic-track-layers.html#cb129-8" tabindex="-1"></a><span class="fu">head</span>(bed)</span>
+<span id="cb129-9"><a href="geom-genomic-track-layers.html#cb129-9" tabindex="-1"></a><span class="co">#    chr    start      end     value1 ymin ymax group</span></span>
+<span id="cb129-10"><a href="geom-genomic-track-layers.html#cb129-10" tabindex="-1"></a><span class="co"># 1 chr1   114048  7101411 -0.2895206  0.1  0.3     D</span></span>
+<span id="cb129-11"><a href="geom-genomic-track-layers.html#cb129-11" tabindex="-1"></a><span class="co"># 2 chr1  8732752 11662832 -1.0575720  0.5  0.7     A</span></span>
+<span id="cb129-12"><a href="geom-genomic-track-layers.html#cb129-12" tabindex="-1"></a><span class="co"># 3 chr1 13705322 16977193  0.5415639  0.2  0.4     A</span></span>
+<span id="cb129-13"><a href="geom-genomic-track-layers.html#cb129-13" tabindex="-1"></a><span class="co"># 4 chr1 21827870 26896494 -0.7159598  0.8  1.0     B</span></span>
+<span id="cb129-14"><a href="geom-genomic-track-layers.html#cb129-14" tabindex="-1"></a><span class="co"># 5 chr1 28397265 30759921 -0.1669718  1.0  1.2     A</span></span>
+<span id="cb129-15"><a href="geom-genomic-track-layers.html#cb129-15" tabindex="-1"></a><span class="co"># 6 chr1 36176151 52241396  0.2176396  0.4  0.6     B</span></span>
+<span id="cb129-16"><a href="geom-genomic-track-layers.html#cb129-16" tabindex="-1"></a></span>
+<span id="cb129-17"><a href="geom-genomic-track-layers.html#cb129-17" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,</span>
+<span id="cb129-18"><a href="geom-genomic-track-layers.html#cb129-18" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb129-19"><a href="geom-genomic-track-layers.html#cb129-19" tabindex="-1"></a>               <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb129-20"><a href="geom-genomic-track-layers.html#cb129-20" tabindex="-1"></a>  <span class="fu">geom_trackgenomicrect</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ymin,<span class="at">ymax =</span> ymax),</span>
+<span id="cb129-21"><a href="geom-genomic-track-layers.html#cb129-21" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/125.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="geom-genomic-track-layers.html#cb130-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,</span>
+<span id="cb130-2"><a href="geom-genomic-track-layers.html#cb130-2" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb130-3"><a href="geom-genomic-track-layers.html#cb130-3" tabindex="-1"></a>               <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb130-4"><a href="geom-genomic-track-layers.html#cb130-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomicrect</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ymin,<span class="at">ymax =</span> ymax,<span class="at">fill =</span> group),</span>
+<span id="cb130-5"><a href="geom-genomic-track-layers.html#cb130-5" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/126.png" style="width:100.0%" /></p>
+<p>Add chromosome cytoband:</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="geom-genomic-track-layers.html#cb131-1" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">300</span>)</span>
+<span id="cb131-2"><a href="geom-genomic-track-layers.html#cb131-2" tabindex="-1"></a></span>
+<span id="cb131-3"><a href="geom-genomic-track-layers.html#cb131-3" tabindex="-1"></a><span class="fu">ggcirclize</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">start =</span> <span class="dv">0</span>,<span class="at">end =</span> <span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb131-4"><a href="geom-genomic-track-layers.html#cb131-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomicrect</span>(<span class="at">data =</span> cytoband_hg19,</span>
+<span id="cb131-5"><a href="geom-genomic-track-layers.html#cb131-5" tabindex="-1"></a>                        <span class="fu">aes</span>(<span class="at">r0 =</span> <span class="fl">0.9</span>,<span class="at">r1 =</span> <span class="fl">0.95</span>,</span>
+<span id="cb131-6"><a href="geom-genomic-track-layers.html#cb131-6" tabindex="-1"></a>                            <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb131-7"><a href="geom-genomic-track-layers.html#cb131-7" tabindex="-1"></a>                            <span class="at">fill =</span> stain),</span>
+<span id="cb131-8"><a href="geom-genomic-track-layers.html#cb131-8" tabindex="-1"></a>                        <span class="at">color =</span> <span class="cn">NA</span>,<span class="at">chrom_data =</span> chrom_hg19) <span class="sc">+</span></span>
+<span id="cb131-9"><a href="geom-genomic-track-layers.html#cb131-9" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;gneg&quot;</span> <span class="ot">=</span> <span class="st">&quot;white&quot;</span>,<span class="st">&quot;gpos25&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey75&quot;</span>,<span class="st">&quot;gpos50&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey50&quot;</span>,</span>
+<span id="cb131-10"><a href="geom-genomic-track-layers.html#cb131-10" tabindex="-1"></a>                               <span class="st">&quot;gpos100&quot;</span> <span class="ot">=</span> <span class="st">&quot;black&quot;</span>,<span class="st">&quot;gvar&quot;</span> <span class="ot">=</span> <span class="st">&quot;black&quot;</span>,<span class="st">&quot;acen&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb131-11"><a href="geom-genomic-track-layers.html#cb131-11" tabindex="-1"></a>                               <span class="st">&quot;stalk&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb131-12"><a href="geom-genomic-track-layers.html#cb131-12" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="at">data =</span> bed,</span>
+<span id="cb131-13"><a href="geom-genomic-track-layers.html#cb131-13" tabindex="-1"></a>                         <span class="fu">aes</span>(<span class="at">r0 =</span> <span class="fl">0.5</span>,<span class="at">r1 =</span> <span class="fl">0.9</span>,<span class="at">clock.wise =</span> F,</span>
+<span id="cb131-14"><a href="geom-genomic-track-layers.html#cb131-14" tabindex="-1"></a>                             <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb131-15"><a href="geom-genomic-track-layers.html#cb131-15" tabindex="-1"></a>                             <span class="at">value =</span> value1,<span class="at">color =</span> chr),</span>
+<span id="cb131-16"><a href="geom-genomic-track-layers.html#cb131-16" tabindex="-1"></a>                         <span class="at">add.xaxis =</span> F,<span class="at">strip.label =</span> F,</span>
+<span id="cb131-17"><a href="geom-genomic-track-layers.html#cb131-17" tabindex="-1"></a>                         <span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/127.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackgenomictile" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> geom_trackgenomictile<a href="geom-genomic-track-layers.html#geom_trackgenomictile" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="geom-genomic-track-layers.html#cb132-1" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">100</span>, <span class="at">nc =</span> <span class="dv">4</span>)</span>
+<span id="cb132-2"><a href="geom-genomic-track-layers.html#cb132-2" tabindex="-1"></a></span>
+<span id="cb132-3"><a href="geom-genomic-track-layers.html#cb132-3" tabindex="-1"></a><span class="co"># check</span></span>
+<span id="cb132-4"><a href="geom-genomic-track-layers.html#cb132-4" tabindex="-1"></a><span class="fu">head</span>(bed,<span class="dv">3</span>)</span>
+<span id="cb132-5"><a href="geom-genomic-track-layers.html#cb132-5" tabindex="-1"></a><span class="co">#    chr    start      end     value1    value2      value3     value4</span></span>
+<span id="cb132-6"><a href="geom-genomic-track-layers.html#cb132-6" tabindex="-1"></a><span class="co"># 1 chr1  4833203 25608564  0.4822349 0.2058859  0.01484909 -0.5005523</span></span>
+<span id="cb132-7"><a href="geom-genomic-track-layers.html#cb132-7" tabindex="-1"></a><span class="co"># 2 chr1 48610396 76802798  0.7022751 0.4851126 -1.38951435  0.6165077</span></span>
+<span id="cb132-8"><a href="geom-genomic-track-layers.html#cb132-8" tabindex="-1"></a><span class="co"># 3 chr1 79055730 87730120 -0.3187775 0.4399068  0.51394522  0.2435110</span></span>
+<span id="cb132-9"><a href="geom-genomic-track-layers.html#cb132-9" tabindex="-1"></a></span>
+<span id="cb132-10"><a href="geom-genomic-track-layers.html#cb132-10" tabindex="-1"></a>bed_long <span class="ot">&lt;-</span> <span class="fu">bedMatTolong</span>(bed)</span>
+<span id="cb132-11"><a href="geom-genomic-track-layers.html#cb132-11" tabindex="-1"></a></span>
+<span id="cb132-12"><a href="geom-genomic-track-layers.html#cb132-12" tabindex="-1"></a><span class="fu">head</span>(bed_long,<span class="dv">3</span>)</span>
+<span id="cb132-13"><a href="geom-genomic-track-layers.html#cb132-13" tabindex="-1"></a><span class="co">#    chr    start      end x variable      value y</span></span>
+<span id="cb132-14"><a href="geom-genomic-track-layers.html#cb132-14" tabindex="-1"></a><span class="co"># 1 chr1  4833203 25608564 1   value1  0.4822349 1</span></span>
+<span id="cb132-15"><a href="geom-genomic-track-layers.html#cb132-15" tabindex="-1"></a><span class="co"># 2 chr1 48610396 76802798 2   value1  0.7022751 1</span></span>
+<span id="cb132-16"><a href="geom-genomic-track-layers.html#cb132-16" tabindex="-1"></a><span class="co"># 3 chr1 79055730 87730120 3   value1 -0.3187775 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="geom-genomic-track-layers.html#cb133-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_long,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.5</span>,<span class="at">r1 =</span> <span class="fl">0.8</span>,</span>
+<span id="cb133-2"><a href="geom-genomic-track-layers.html#cb133-2" tabindex="-1"></a>                        <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb133-3"><a href="geom-genomic-track-layers.html#cb133-3" tabindex="-1"></a>  <span class="fu">geom_trackgenomictile</span>(<span class="fu">aes</span>(<span class="at">x =</span> x,<span class="at">y =</span> y,<span class="at">fill =</span> value),</span>
+<span id="cb133-4"><a href="geom-genomic-track-layers.html#cb133-4" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19,<span class="at">strip.label =</span> T) <span class="sc">+</span></span>
+<span id="cb133-5"><a href="geom-genomic-track-layers.html#cb133-5" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">&quot;green&quot;</span>,<span class="at">mid =</span> <span class="st">&quot;white&quot;</span>,<span class="at">high =</span> <span class="st">&quot;red&quot;</span>,<span class="at">midpoint =</span> <span class="dv">0</span>)</span></code></pre></div>
+<p><img src="local_images/128.png" style="width:100.0%" /></p>
+<p><strong>add_link</strong> can draw connection with the origin chromosome region:</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="geom-genomic-track-layers.html#cb134-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_long,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.5</span>,<span class="at">r1 =</span> <span class="fl">0.7</span>,</span>
+<span id="cb134-2"><a href="geom-genomic-track-layers.html#cb134-2" tabindex="-1"></a>                        <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb134-3"><a href="geom-genomic-track-layers.html#cb134-3" tabindex="-1"></a>  <span class="fu">geom_trackgenomictile</span>(<span class="fu">aes</span>(<span class="at">x =</span> x,<span class="at">y =</span> y,<span class="at">fill =</span> value),</span>
+<span id="cb134-4"><a href="geom-genomic-track-layers.html#cb134-4" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19,<span class="at">strip.label =</span> T,</span>
+<span id="cb134-5"><a href="geom-genomic-track-layers.html#cb134-5" tabindex="-1"></a>                        <span class="at">add_link =</span> T,</span>
+<span id="cb134-6"><a href="geom-genomic-track-layers.html#cb134-6" tabindex="-1"></a>                        <span class="at">link_pos =</span> <span class="st">&quot;top&quot;</span>) <span class="sc">+</span></span>
+<span id="cb134-7"><a href="geom-genomic-track-layers.html#cb134-7" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">&quot;green&quot;</span>,<span class="at">mid =</span> <span class="st">&quot;white&quot;</span>,<span class="at">high =</span> <span class="st">&quot;red&quot;</span>,<span class="at">midpoint =</span> <span class="dv">0</span>)</span></code></pre></div>
+<p><img src="local_images/129.png" style="width:100.0%" /></p>
+<p>Change link line color:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="geom-genomic-track-layers.html#cb135-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_long,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.5</span>,<span class="at">r1 =</span> <span class="fl">0.7</span>,</span>
+<span id="cb135-2"><a href="geom-genomic-track-layers.html#cb135-2" tabindex="-1"></a>                        <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb135-3"><a href="geom-genomic-track-layers.html#cb135-3" tabindex="-1"></a>  <span class="fu">geom_trackgenomictile</span>(<span class="fu">aes</span>(<span class="at">x =</span> x,<span class="at">y =</span> y,<span class="at">fill =</span> value),</span>
+<span id="cb135-4"><a href="geom-genomic-track-layers.html#cb135-4" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19,<span class="at">strip.label =</span> T,</span>
+<span id="cb135-5"><a href="geom-genomic-track-layers.html#cb135-5" tabindex="-1"></a>                        <span class="at">add_link =</span> T,</span>
+<span id="cb135-6"><a href="geom-genomic-track-layers.html#cb135-6" tabindex="-1"></a>                        <span class="at">link_pos =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb135-7"><a href="geom-genomic-track-layers.html#cb135-7" tabindex="-1"></a>                        <span class="at">link_col =</span> circlize<span class="sc">::</span><span class="fu">rand_color</span>(<span class="dv">24</span>)) <span class="sc">+</span></span>
+<span id="cb135-8"><a href="geom-genomic-track-layers.html#cb135-8" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">&quot;green&quot;</span>,<span class="at">mid =</span> <span class="st">&quot;white&quot;</span>,<span class="at">high =</span> <span class="st">&quot;red&quot;</span>,<span class="at">midpoint =</span> <span class="dv">0</span>)</span></code></pre></div>
+<p><img src="local_images/130.png" style="width:100.0%" /></p>
+<p>Add cytoband plot:</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="geom-genomic-track-layers.html#cb136-1" tabindex="-1"></a><span class="fu">library</span>(ggnewscale)</span>
+<span id="cb136-2"><a href="geom-genomic-track-layers.html#cb136-2" tabindex="-1"></a></span>
+<span id="cb136-3"><a href="geom-genomic-track-layers.html#cb136-3" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_long,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.4</span>,<span class="at">r1 =</span> <span class="fl">0.68</span>,</span>
+<span id="cb136-4"><a href="geom-genomic-track-layers.html#cb136-4" tabindex="-1"></a>                        <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb136-5"><a href="geom-genomic-track-layers.html#cb136-5" tabindex="-1"></a>  <span class="fu">geom_trackgenomictile</span>(<span class="fu">aes</span>(<span class="at">x =</span> x,<span class="at">y =</span> y,<span class="at">fill =</span> value),</span>
+<span id="cb136-6"><a href="geom-genomic-track-layers.html#cb136-6" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19,<span class="at">strip.label =</span> F,</span>
+<span id="cb136-7"><a href="geom-genomic-track-layers.html#cb136-7" tabindex="-1"></a>                        <span class="at">add_link =</span> T,</span>
+<span id="cb136-8"><a href="geom-genomic-track-layers.html#cb136-8" tabindex="-1"></a>                        <span class="at">link_pos =</span> <span class="st">&quot;top&quot;</span>,</span>
+<span id="cb136-9"><a href="geom-genomic-track-layers.html#cb136-9" tabindex="-1"></a>                        <span class="at">link_col =</span> circlize<span class="sc">::</span><span class="fu">rand_color</span>(<span class="dv">24</span>)) <span class="sc">+</span></span>
+<span id="cb136-10"><a href="geom-genomic-track-layers.html#cb136-10" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">&quot;green&quot;</span>,<span class="at">mid =</span> <span class="st">&quot;white&quot;</span>,<span class="at">high =</span> <span class="st">&quot;red&quot;</span>,<span class="at">midpoint =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb136-11"><a href="geom-genomic-track-layers.html#cb136-11" tabindex="-1"></a>  <span class="co"># ============================================================================</span></span>
+<span id="cb136-12"><a href="geom-genomic-track-layers.html#cb136-12" tabindex="-1"></a>  <span class="fu">new_scale_fill</span>() <span class="sc">+</span></span>
+<span id="cb136-13"><a href="geom-genomic-track-layers.html#cb136-13" tabindex="-1"></a>  <span class="fu">geom_trackgenomicrect</span>(<span class="at">data =</span> cytoband_hg19,</span>
+<span id="cb136-14"><a href="geom-genomic-track-layers.html#cb136-14" tabindex="-1"></a>                        <span class="fu">aes</span>(<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="fl">0.85</span>,<span class="at">fill =</span> stain),</span>
+<span id="cb136-15"><a href="geom-genomic-track-layers.html#cb136-15" tabindex="-1"></a>                        <span class="at">color =</span> <span class="cn">NA</span>,<span class="at">chrom_data =</span> chrom_hg19) <span class="sc">+</span></span>
+<span id="cb136-16"><a href="geom-genomic-track-layers.html#cb136-16" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;gneg&quot;</span> <span class="ot">=</span> <span class="st">&quot;white&quot;</span>,<span class="st">&quot;gpos25&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey75&quot;</span>,<span class="st">&quot;gpos50&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey50&quot;</span>,</span>
+<span id="cb136-17"><a href="geom-genomic-track-layers.html#cb136-17" tabindex="-1"></a>                               <span class="st">&quot;gpos100&quot;</span> <span class="ot">=</span> <span class="st">&quot;black&quot;</span>,<span class="st">&quot;gvar&quot;</span> <span class="ot">=</span> <span class="st">&quot;black&quot;</span>,<span class="st">&quot;acen&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb136-18"><a href="geom-genomic-track-layers.html#cb136-18" tabindex="-1"></a>                               <span class="st">&quot;stalk&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
+<p><img src="local_images/131.png" style="width:100.0%" /></p>
+<p>Change the position:</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="geom-genomic-track-layers.html#cb137-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_long,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.6</span>,<span class="at">r1 =</span> <span class="fl">0.9</span>,</span>
+<span id="cb137-2"><a href="geom-genomic-track-layers.html#cb137-2" tabindex="-1"></a>                        <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb137-3"><a href="geom-genomic-track-layers.html#cb137-3" tabindex="-1"></a>  <span class="fu">geom_trackgenomictile</span>(<span class="fu">aes</span>(<span class="at">x =</span> x,<span class="at">y =</span> y,<span class="at">fill =</span> value),</span>
+<span id="cb137-4"><a href="geom-genomic-track-layers.html#cb137-4" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19,<span class="at">strip.label =</span> T,</span>
+<span id="cb137-5"><a href="geom-genomic-track-layers.html#cb137-5" tabindex="-1"></a>                        <span class="at">add_link =</span> T,</span>
+<span id="cb137-6"><a href="geom-genomic-track-layers.html#cb137-6" tabindex="-1"></a>                        <span class="at">link_pos =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb137-7"><a href="geom-genomic-track-layers.html#cb137-7" tabindex="-1"></a>                        <span class="at">link_col =</span> circlize<span class="sc">::</span><span class="fu">rand_color</span>(<span class="dv">24</span>)) <span class="sc">+</span></span>
+<span id="cb137-8"><a href="geom-genomic-track-layers.html#cb137-8" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">&quot;green&quot;</span>,<span class="at">mid =</span> <span class="st">&quot;white&quot;</span>,<span class="at">high =</span> <span class="st">&quot;red&quot;</span>,<span class="at">midpoint =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb137-9"><a href="geom-genomic-track-layers.html#cb137-9" tabindex="-1"></a>  <span class="co"># ============================================================================</span></span>
+<span id="cb137-10"><a href="geom-genomic-track-layers.html#cb137-10" tabindex="-1"></a>  <span class="fu">new_scale_fill</span>() <span class="sc">+</span></span>
+<span id="cb137-11"><a href="geom-genomic-track-layers.html#cb137-11" tabindex="-1"></a>  <span class="fu">geom_trackgenomicrect</span>(<span class="at">data =</span> cytoband_hg19,</span>
+<span id="cb137-12"><a href="geom-genomic-track-layers.html#cb137-12" tabindex="-1"></a>                        <span class="at">strip.label =</span> F,</span>
+<span id="cb137-13"><a href="geom-genomic-track-layers.html#cb137-13" tabindex="-1"></a>                        <span class="at">add.xaxis =</span> F,</span>
+<span id="cb137-14"><a href="geom-genomic-track-layers.html#cb137-14" tabindex="-1"></a>                        <span class="co"># xAxis.params = list(pos = &quot;bottom&quot;),</span></span>
+<span id="cb137-15"><a href="geom-genomic-track-layers.html#cb137-15" tabindex="-1"></a>                        <span class="fu">aes</span>(<span class="at">r0 =</span> <span class="fl">0.43</span>,<span class="at">r1 =</span> <span class="fl">0.48</span>,<span class="at">fill =</span> stain),</span>
+<span id="cb137-16"><a href="geom-genomic-track-layers.html#cb137-16" tabindex="-1"></a>                        <span class="at">color =</span> <span class="cn">NA</span>,<span class="at">chrom_data =</span> chrom_hg19) <span class="sc">+</span></span>
+<span id="cb137-17"><a href="geom-genomic-track-layers.html#cb137-17" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;gneg&quot;</span> <span class="ot">=</span> <span class="st">&quot;white&quot;</span>,<span class="st">&quot;gpos25&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey75&quot;</span>,<span class="st">&quot;gpos50&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey50&quot;</span>,</span>
+<span id="cb137-18"><a href="geom-genomic-track-layers.html#cb137-18" tabindex="-1"></a>                               <span class="st">&quot;gpos100&quot;</span> <span class="ot">=</span> <span class="st">&quot;black&quot;</span>,<span class="st">&quot;gvar&quot;</span> <span class="ot">=</span> <span class="st">&quot;black&quot;</span>,<span class="st">&quot;acen&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb137-19"><a href="geom-genomic-track-layers.html#cb137-19" tabindex="-1"></a>                               <span class="st">&quot;stalk&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
+<p><img src="local_images/132.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackgenomicarea" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> geom_trackgenomicarea<a href="geom-genomic-track-layers.html#geom_trackgenomicarea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="geom-genomic-track-layers.html#cb138-1" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">300</span>)</span>
+<span id="cb138-2"><a href="geom-genomic-track-layers.html#cb138-2" tabindex="-1"></a></span>
+<span id="cb138-3"><a href="geom-genomic-track-layers.html#cb138-3" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">fill =</span> chr,</span>
+<span id="cb138-4"><a href="geom-genomic-track-layers.html#cb138-4" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb138-5"><a href="geom-genomic-track-layers.html#cb138-5" tabindex="-1"></a>                   <span class="at">value =</span> value1)) <span class="sc">+</span></span>
+<span id="cb138-6"><a href="geom-genomic-track-layers.html#cb138-6" tabindex="-1"></a>  <span class="fu">geom_trackgenomicarea</span>(<span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/133.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackgenomicline" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> geom_trackgenomicline<a href="geom-genomic-track-layers.html#geom_trackgenomicline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="geom-genomic-track-layers.html#cb139-1" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">300</span>)</span>
+<span id="cb139-2"><a href="geom-genomic-track-layers.html#cb139-2" tabindex="-1"></a></span>
+<span id="cb139-3"><a href="geom-genomic-track-layers.html#cb139-3" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">color =</span> chr,</span>
+<span id="cb139-4"><a href="geom-genomic-track-layers.html#cb139-4" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb139-5"><a href="geom-genomic-track-layers.html#cb139-5" tabindex="-1"></a>                   <span class="at">value =</span> value1)) <span class="sc">+</span></span>
+<span id="cb139-6"><a href="geom-genomic-track-layers.html#cb139-6" tabindex="-1"></a>  <span class="fu">geom_trackgenomicline</span>(<span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/134.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackgenomicdensity" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> geom_trackgenomicdensity<a href="geom-genomic-track-layers.html#geom_trackgenomicdensity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="geom-genomic-track-layers.html#cb140-1" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">system.file</span>(<span class="at">package =</span> <span class="st">&quot;circlize&quot;</span>, <span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;DMR.RData&quot;</span>))</span>
+<span id="cb140-2"><a href="geom-genomic-track-layers.html#cb140-2" tabindex="-1"></a></span>
+<span id="cb140-3"><a href="geom-genomic-track-layers.html#cb140-3" tabindex="-1"></a><span class="fu">ggcirclize</span>(DMR_hyper,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb140-4"><a href="geom-genomic-track-layers.html#cb140-4" tabindex="-1"></a>                         <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb140-5"><a href="geom-genomic-track-layers.html#cb140-5" tabindex="-1"></a>  <span class="fu">geom_trackgenomicdensity</span>(<span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/135.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="geom-genomic-track-layers.html#cb141-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(DMR_hyper,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb141-2"><a href="geom-genomic-track-layers.html#cb141-2" tabindex="-1"></a>                         <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb141-3"><a href="geom-genomic-track-layers.html#cb141-3" tabindex="-1"></a>  <span class="fu">geom_trackgenomicdensity</span>(<span class="at">chrom_data =</span> chrom_hg19,<span class="at">fill =</span> <span class="st">&quot;pink&quot;</span>,<span class="at">color =</span> <span class="cn">NA</span>)</span></code></pre></div>
+<p><img src="local_images/136.png" style="width:100.0%" /></p>
+<p>Draw partial chromosomes:</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="geom-genomic-track-layers.html#cb142-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(DMR_hyper <span class="sc">%&gt;%</span> <span class="fu">filter</span>(chr <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">&quot;chr&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>),<span class="st">&quot;chr20&quot;</span>,<span class="st">&quot;chrX&quot;</span>)),</span>
+<span id="cb142-2"><a href="geom-genomic-track-layers.html#cb142-2" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb142-3"><a href="geom-genomic-track-layers.html#cb142-3" tabindex="-1"></a>               <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb142-4"><a href="geom-genomic-track-layers.html#cb142-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomicdensity</span>(<span class="at">chrom_data =</span> chrom_hg19,<span class="at">fill =</span> <span class="st">&quot;pink&quot;</span>,<span class="at">color =</span> <span class="cn">NA</span>)</span></code></pre></div>
+<p><img src="local_images/137.png" style="width:100.0%" /></p>
+<p>Keep all chromosomes:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="geom-genomic-track-layers.html#cb143-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(DMR_hyper <span class="sc">%&gt;%</span> <span class="fu">filter</span>(chr <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">&quot;chr&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>),<span class="st">&quot;chr20&quot;</span>,<span class="st">&quot;chrX&quot;</span>)),</span>
+<span id="cb143-2"><a href="geom-genomic-track-layers.html#cb143-2" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb143-3"><a href="geom-genomic-track-layers.html#cb143-3" tabindex="-1"></a>               <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb143-4"><a href="geom-genomic-track-layers.html#cb143-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomicdensity</span>(<span class="at">chrom_data =</span> chrom_hg19,<span class="at">fill =</span> <span class="st">&quot;pink&quot;</span>,<span class="at">color =</span> <span class="cn">NA</span>,</span>
+<span id="cb143-5"><a href="geom-genomic-track-layers.html#cb143-5" tabindex="-1"></a>                           <span class="at">keep.all.chrom =</span> T)</span></code></pre></div>
+<p><img src="local_images/138.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackgenomicrainfall" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> geom_trackgenomicrainfall<a href="geom-genomic-track-layers.html#geom_trackgenomicrainfall" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="geom-genomic-track-layers.html#cb144-1" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">system.file</span>(<span class="at">package =</span> <span class="st">&quot;circlize&quot;</span>, <span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;DMR.RData&quot;</span>))</span>
+<span id="cb144-2"><a href="geom-genomic-track-layers.html#cb144-2" tabindex="-1"></a></span>
+<span id="cb144-3"><a href="geom-genomic-track-layers.html#cb144-3" tabindex="-1"></a>cb <span class="ot">&lt;-</span> <span class="fu">rbind</span>(DMR_hyper,DMR_hypo)</span>
+<span id="cb144-4"><a href="geom-genomic-track-layers.html#cb144-4" tabindex="-1"></a>cb<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;DMR_hyper&quot;</span>,<span class="fu">nrow</span>(DMR_hyper)),</span>
+<span id="cb144-5"><a href="geom-genomic-track-layers.html#cb144-5" tabindex="-1"></a>              <span class="fu">rep</span>(<span class="st">&quot;DMR_hypo&quot;</span>,<span class="fu">nrow</span>(DMR_hypo)))</span>
+<span id="cb144-6"><a href="geom-genomic-track-layers.html#cb144-6" tabindex="-1"></a></span>
+<span id="cb144-7"><a href="geom-genomic-track-layers.html#cb144-7" tabindex="-1"></a><span class="fu">ggcirclize</span>(cb,</span>
+<span id="cb144-8"><a href="geom-genomic-track-layers.html#cb144-8" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">color =</span> group,</span>
+<span id="cb144-9"><a href="geom-genomic-track-layers.html#cb144-9" tabindex="-1"></a>               <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end)) <span class="sc">+</span></span>
+<span id="cb144-10"><a href="geom-genomic-track-layers.html#cb144-10" tabindex="-1"></a>  <span class="fu">geom_trackgenomicrainfall</span>(<span class="at">chrom_data =</span> chrom_hg19,<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb144-11"><a href="geom-genomic-track-layers.html#cb144-11" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="at">DMR_hyper =</span> <span class="st">&quot;red&quot;</span>,<span class="at">DMR_hypo =</span> <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
+<p><img src="local_images/139.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackgenomiclink" class="section level2 hasAnchor" number="5.9">
+<h2><span class="header-section-number">5.9</span> geom_trackgenomiclink<a href="geom-genomic-track-layers.html#geom_trackgenomiclink" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>geom_trackgenomiclink</strong> need “chr0”, “gstart0”, “gend0”, “chr1”, “gstart1” and “gend1” mapping variables.</p>
+<hr />
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="geom-genomic-track-layers.html#cb145-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb145-2"><a href="geom-genomic-track-layers.html#cb145-2" tabindex="-1"></a>bed1 <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">100</span>)</span>
+<span id="cb145-3"><a href="geom-genomic-track-layers.html#cb145-3" tabindex="-1"></a>bed1 <span class="ot">=</span> bed1[<span class="fu">sample</span>(<span class="fu">nrow</span>(bed1), <span class="dv">20</span>), ]</span>
+<span id="cb145-4"><a href="geom-genomic-track-layers.html#cb145-4" tabindex="-1"></a>bed2 <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">100</span>)</span>
+<span id="cb145-5"><a href="geom-genomic-track-layers.html#cb145-5" tabindex="-1"></a>bed2 <span class="ot">=</span> bed2[<span class="fu">sample</span>(<span class="fu">nrow</span>(bed2), <span class="dv">20</span>), ]</span>
+<span id="cb145-6"><a href="geom-genomic-track-layers.html#cb145-6" tabindex="-1"></a></span>
+<span id="cb145-7"><a href="geom-genomic-track-layers.html#cb145-7" tabindex="-1"></a>bed_link <span class="ot">&lt;-</span> <span class="fu">cbind</span>(bed1[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],bed2[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
+<span id="cb145-8"><a href="geom-genomic-track-layers.html#cb145-8" tabindex="-1"></a><span class="fu">colnames</span>(bed_link) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;chr1&quot;</span>,<span class="st">&quot;start1&quot;</span>,<span class="st">&quot;end1&quot;</span>,<span class="st">&quot;chr2&quot;</span>,<span class="st">&quot;start2&quot;</span>,<span class="st">&quot;end2&quot;</span>)</span>
+<span id="cb145-9"><a href="geom-genomic-track-layers.html#cb145-9" tabindex="-1"></a>bed_link<span class="sc">$</span>value <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(bed_link))</span>
+<span id="cb145-10"><a href="geom-genomic-track-layers.html#cb145-10" tabindex="-1"></a>bed_link<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">sample</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>],<span class="fu">nrow</span>(bed_link),<span class="at">replace =</span> T)</span>
+<span id="cb145-11"><a href="geom-genomic-track-layers.html#cb145-11" tabindex="-1"></a></span>
+<span id="cb145-12"><a href="geom-genomic-track-layers.html#cb145-12" tabindex="-1"></a>bed_c <span class="ot">&lt;-</span> <span class="fu">rbind</span>(bed1,bed2)</span>
+<span id="cb145-13"><a href="geom-genomic-track-layers.html#cb145-13" tabindex="-1"></a></span>
+<span id="cb145-14"><a href="geom-genomic-track-layers.html#cb145-14" tabindex="-1"></a><span class="co"># check</span></span>
+<span id="cb145-15"><a href="geom-genomic-track-layers.html#cb145-15" tabindex="-1"></a><span class="fu">head</span>(bed_link,<span class="dv">3</span>)</span>
+<span id="cb145-16"><a href="geom-genomic-track-layers.html#cb145-16" tabindex="-1"></a><span class="co">#     chr1    start1      end1  chr2    start2      end2      value group</span></span>
+<span id="cb145-17"><a href="geom-genomic-track-layers.html#cb145-17" tabindex="-1"></a><span class="co"># 41  chr6 102324459 147617643 chr16  59796357  69153026 -0.2506477     A</span></span>
+<span id="cb145-18"><a href="geom-genomic-track-layers.html#cb145-18" tabindex="-1"></a><span class="co"># 89 chr17  65167455  77619820  chrX  46532875  81569809  1.5202752     B</span></span>
+<span id="cb145-19"><a href="geom-genomic-track-layers.html#cb145-19" tabindex="-1"></a><span class="co"># 63 chr11  13366995  32331617  chr5 172937687 180577320 -2.0932565     B</span></span></code></pre></div>
+<p>Plot:</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="geom-genomic-track-layers.html#cb146-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_link,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb146-2"><a href="geom-genomic-track-layers.html#cb146-2" tabindex="-1"></a>                        <span class="at">chr0 =</span> chr1,<span class="at">gstart0 =</span> start1,</span>
+<span id="cb146-3"><a href="geom-genomic-track-layers.html#cb146-3" tabindex="-1"></a>                        <span class="at">chr1 =</span> chr2,<span class="at">gstart1 =</span> start2)) <span class="sc">+</span></span>
+<span id="cb146-4"><a href="geom-genomic-track-layers.html#cb146-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclink</span>(<span class="fu">aes</span>(<span class="at">r =</span> <span class="dv">1</span>),<span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/140.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="geom-genomic-track-layers.html#cb147-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_link,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb147-2"><a href="geom-genomic-track-layers.html#cb147-2" tabindex="-1"></a>                        <span class="at">chr0 =</span> chr1,<span class="at">gend0 =</span> end1,</span>
+<span id="cb147-3"><a href="geom-genomic-track-layers.html#cb147-3" tabindex="-1"></a>                        <span class="at">chr1 =</span> chr2,<span class="at">gend1 =</span> end2)) <span class="sc">+</span></span>
+<span id="cb147-4"><a href="geom-genomic-track-layers.html#cb147-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclink</span>(<span class="fu">aes</span>(<span class="at">r =</span> <span class="dv">1</span>),<span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/141.png" style="width:100.0%" /></p>
+<p>Add arrows:</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="geom-genomic-track-layers.html#cb148-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_link,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">color =</span> group,<span class="at">fill =</span> group,</span>
+<span id="cb148-2"><a href="geom-genomic-track-layers.html#cb148-2" tabindex="-1"></a>                        <span class="at">chr0 =</span> chr1,<span class="at">gstart0 =</span> start1,</span>
+<span id="cb148-3"><a href="geom-genomic-track-layers.html#cb148-3" tabindex="-1"></a>                        <span class="at">chr1 =</span> chr2,<span class="at">gstart1 =</span> start2)) <span class="sc">+</span></span>
+<span id="cb148-4"><a href="geom-genomic-track-layers.html#cb148-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclink</span>(<span class="fu">aes</span>(<span class="at">r =</span> <span class="dv">1</span>),<span class="at">chrom_data =</span> chrom_hg19,</span>
+<span id="cb148-5"><a href="geom-genomic-track-layers.html#cb148-5" tabindex="-1"></a>                        <span class="at">curve.arrow =</span> <span class="fu">arrow</span>(<span class="at">type =</span> <span class="st">&quot;closed&quot;</span>,<span class="at">end =</span> <span class="st">&quot;both&quot;</span>))</span></code></pre></div>
+<p><img src="local_images/142.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="geom-genomic-track-layers.html#cb149-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_link,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb149-2"><a href="geom-genomic-track-layers.html#cb149-2" tabindex="-1"></a>                        <span class="at">chr0 =</span> chr1,<span class="at">gstart0 =</span> start1,<span class="at">gend0 =</span> end1,</span>
+<span id="cb149-3"><a href="geom-genomic-track-layers.html#cb149-3" tabindex="-1"></a>                        <span class="at">chr1 =</span> chr2,<span class="at">gstart1 =</span> start2,<span class="at">gend1 =</span> end2)) <span class="sc">+</span></span>
+<span id="cb149-4"><a href="geom-genomic-track-layers.html#cb149-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclink</span>(<span class="fu">aes</span>(<span class="at">r =</span> <span class="dv">1</span>),<span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/143.png" style="width:100.0%" /></p>
+<p>Mapping with color:</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="geom-genomic-track-layers.html#cb150-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_link,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb150-2"><a href="geom-genomic-track-layers.html#cb150-2" tabindex="-1"></a>                        <span class="at">chr0 =</span> chr1,<span class="at">gstart0 =</span> start1,<span class="at">gend0 =</span> end1,</span>
+<span id="cb150-3"><a href="geom-genomic-track-layers.html#cb150-3" tabindex="-1"></a>                        <span class="at">chr1 =</span> chr2,<span class="at">gstart1 =</span> start2,<span class="at">gend1 =</span> end2)) <span class="sc">+</span></span>
+<span id="cb150-4"><a href="geom-genomic-track-layers.html#cb150-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclink</span>(<span class="fu">aes</span>(<span class="at">r =</span> <span class="dv">1</span>,<span class="at">fill =</span> group),</span>
+<span id="cb150-5"><a href="geom-genomic-track-layers.html#cb150-5" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19,</span>
+<span id="cb150-6"><a href="geom-genomic-track-layers.html#cb150-6" tabindex="-1"></a>                        <span class="at">keep.all.chrom =</span> T)</span></code></pre></div>
+<p><img src="local_images/144.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="geom-genomic-track-layers.html#cb151-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_link,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb151-2"><a href="geom-genomic-track-layers.html#cb151-2" tabindex="-1"></a>                        <span class="at">chr0 =</span> chr1,<span class="at">gstart0 =</span> start1,<span class="at">gend0 =</span> end1,</span>
+<span id="cb151-3"><a href="geom-genomic-track-layers.html#cb151-3" tabindex="-1"></a>                        <span class="at">chr1 =</span> chr2,<span class="at">gstart1 =</span> start2,<span class="at">gend1 =</span> end2)) <span class="sc">+</span></span>
+<span id="cb151-4"><a href="geom-genomic-track-layers.html#cb151-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclink</span>(<span class="fu">aes</span>(<span class="at">r =</span> <span class="dv">1</span>,<span class="at">fill =</span> value),</span>
+<span id="cb151-5"><a href="geom-genomic-track-layers.html#cb151-5" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19,</span>
+<span id="cb151-6"><a href="geom-genomic-track-layers.html#cb151-6" tabindex="-1"></a>                        <span class="at">keep.all.chrom =</span> T,</span>
+<span id="cb151-7"><a href="geom-genomic-track-layers.html#cb151-7" tabindex="-1"></a>                        <span class="at">start.arrow =</span> T,<span class="at">end.arrow =</span> T)</span></code></pre></div>
+<p><img src="local_images/145.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="geom-genomic-track-layers.html#cb152-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_link,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb152-2"><a href="geom-genomic-track-layers.html#cb152-2" tabindex="-1"></a>                        <span class="at">chr0 =</span> chr1,<span class="at">gstart0 =</span> start1,<span class="at">gend0 =</span> end1,</span>
+<span id="cb152-3"><a href="geom-genomic-track-layers.html#cb152-3" tabindex="-1"></a>                        <span class="at">chr1 =</span> chr2,<span class="at">gstart1 =</span> start2,<span class="at">gend1 =</span> end2)) <span class="sc">+</span></span>
+<span id="cb152-4"><a href="geom-genomic-track-layers.html#cb152-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclink</span>(<span class="fu">aes</span>(<span class="at">r =</span> <span class="dv">1</span>),<span class="at">fill =</span> <span class="st">&quot;grey90&quot;</span>,</span>
+<span id="cb152-5"><a href="geom-genomic-track-layers.html#cb152-5" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19,</span>
+<span id="cb152-6"><a href="geom-genomic-track-layers.html#cb152-6" tabindex="-1"></a>                        <span class="at">keep.all.chrom =</span> T,</span>
+<span id="cb152-7"><a href="geom-genomic-track-layers.html#cb152-7" tabindex="-1"></a>                        <span class="at">start.arrow =</span> T,<span class="at">end.arrow =</span> T,</span>
+<span id="cb152-8"><a href="geom-genomic-track-layers.html#cb152-8" tabindex="-1"></a>                        <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>,<span class="at">linewidth =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<p><img src="local_images/146.png" style="width:100.0%" /></p>
+<p>Combine multiple layers:</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="geom-genomic-track-layers.html#cb153-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_link,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb153-2"><a href="geom-genomic-track-layers.html#cb153-2" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclink</span>(<span class="fu">aes</span>(<span class="at">chr0 =</span> chr1,<span class="at">gstart0 =</span> start1,<span class="at">gend0 =</span> end1,</span>
+<span id="cb153-3"><a href="geom-genomic-track-layers.html#cb153-3" tabindex="-1"></a>                            <span class="at">chr1 =</span> chr2,<span class="at">gstart1 =</span> start2,<span class="at">gend1 =</span> end2,</span>
+<span id="cb153-4"><a href="geom-genomic-track-layers.html#cb153-4" tabindex="-1"></a>                            <span class="at">r =</span> <span class="fl">0.5</span>),</span>
+<span id="cb153-5"><a href="geom-genomic-track-layers.html#cb153-5" tabindex="-1"></a>                        <span class="at">strip.label =</span> F,</span>
+<span id="cb153-6"><a href="geom-genomic-track-layers.html#cb153-6" tabindex="-1"></a>                        <span class="at">keep.all.chrom =</span> T,</span>
+<span id="cb153-7"><a href="geom-genomic-track-layers.html#cb153-7" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19) <span class="sc">+</span></span>
+<span id="cb153-8"><a href="geom-genomic-track-layers.html#cb153-8" tabindex="-1"></a>  <span class="fu">geom_trackgenomicrect</span>(<span class="at">data =</span> bed_c,</span>
+<span id="cb153-9"><a href="geom-genomic-track-layers.html#cb153-9" tabindex="-1"></a>                        <span class="fu">aes</span>(<span class="at">start =</span> <span class="dv">0</span>,<span class="at">r0 =</span> <span class="fl">0.55</span>,<span class="at">r1 =</span> <span class="fl">0.75</span>,</span>
+<span id="cb153-10"><a href="geom-genomic-track-layers.html#cb153-10" tabindex="-1"></a>                            <span class="at">chr =</span> chr, <span class="at">gstart =</span> start, <span class="at">gend =</span> end),</span>
+<span id="cb153-11"><a href="geom-genomic-track-layers.html#cb153-11" tabindex="-1"></a>                        <span class="at">fill =</span> <span class="st">&quot;orange&quot;</span>,<span class="at">strip.label =</span> F,<span class="at">add.xaxis =</span> F,</span>
+<span id="cb153-12"><a href="geom-genomic-track-layers.html#cb153-12" tabindex="-1"></a>                        <span class="at">keep.all.chrom =</span> T,</span>
+<span id="cb153-13"><a href="geom-genomic-track-layers.html#cb153-13" tabindex="-1"></a>                        <span class="at">chrom_data =</span> chrom_hg19) <span class="sc">+</span></span>
+<span id="cb153-14"><a href="geom-genomic-track-layers.html#cb153-14" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="at">data =</span> bed_c,</span>
+<span id="cb153-15"><a href="geom-genomic-track-layers.html#cb153-15" tabindex="-1"></a>                         <span class="fu">aes</span>(<span class="at">start =</span> <span class="dv">0</span>,<span class="at">r0 =</span> <span class="fl">0.75</span>,<span class="at">r1 =</span> <span class="fl">0.95</span>,</span>
+<span id="cb153-16"><a href="geom-genomic-track-layers.html#cb153-16" tabindex="-1"></a>                             <span class="at">chr =</span> chr, <span class="at">gstart =</span> start, <span class="at">gend =</span> end,<span class="at">value =</span> value1),</span>
+<span id="cb153-17"><a href="geom-genomic-track-layers.html#cb153-17" tabindex="-1"></a>                         <span class="at">keep.all.chrom =</span> T,</span>
+<span id="cb153-18"><a href="geom-genomic-track-layers.html#cb153-18" tabindex="-1"></a>                         <span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/147.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackgenomiclabel" class="section level2 hasAnchor" number="5.10">
+<h2><span class="header-section-number">5.10</span> geom_trackgenomiclabel<a href="geom-genomic-track-layers.html#geom_trackgenomiclabel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="geom-genomic-track-layers.html#cb154-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
+<span id="cb154-2"><a href="geom-genomic-track-layers.html#cb154-2" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">50</span>, <span class="at">fun =</span> <span class="cf">function</span>(k) <span class="fu">sample</span>(letters, k, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb154-3"><a href="geom-genomic-track-layers.html#cb154-3" tabindex="-1"></a>bed<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">paste0</span>(<span class="st">&quot;gene &quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">55</span>),<span class="dv">55</span>,<span class="at">replace =</span> F)</span>
+<span id="cb154-4"><a href="geom-genomic-track-layers.html#cb154-4" tabindex="-1"></a></span>
+<span id="cb154-5"><a href="geom-genomic-track-layers.html#cb154-5" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.7</span>,<span class="at">r1 =</span> <span class="fl">0.7</span>,</span>
+<span id="cb154-6"><a href="geom-genomic-track-layers.html#cb154-6" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb154-7"><a href="geom-genomic-track-layers.html#cb154-7" tabindex="-1"></a>                   <span class="at">label =</span> label)) <span class="sc">+</span></span>
+<span id="cb154-8"><a href="geom-genomic-track-layers.html#cb154-8" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclabel</span>(<span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/148.png" style="width:100.0%" /></p>
+<p>Change the connection position:</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="geom-genomic-track-layers.html#cb155-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.7</span>,<span class="at">r1 =</span> <span class="fl">0.7</span>,</span>
+<span id="cb155-2"><a href="geom-genomic-track-layers.html#cb155-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb155-3"><a href="geom-genomic-track-layers.html#cb155-3" tabindex="-1"></a>                   <span class="at">label =</span> label)) <span class="sc">+</span></span>
+<span id="cb155-4"><a href="geom-genomic-track-layers.html#cb155-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclabel</span>(<span class="at">chrom_data =</span> chrom_hg19,</span>
+<span id="cb155-5"><a href="geom-genomic-track-layers.html#cb155-5" tabindex="-1"></a>                         <span class="at">link_pos =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb155-6"><a href="geom-genomic-track-layers.html#cb155-6" tabindex="-1"></a>                         <span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/149.png" style="width:100.0%" /></p>
+<p>Change connection color:</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="geom-genomic-track-layers.html#cb156-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.9</span>,<span class="at">r1 =</span> <span class="fl">0.9</span>,</span>
+<span id="cb156-2"><a href="geom-genomic-track-layers.html#cb156-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb156-3"><a href="geom-genomic-track-layers.html#cb156-3" tabindex="-1"></a>                   <span class="at">label =</span> label)) <span class="sc">+</span></span>
+<span id="cb156-4"><a href="geom-genomic-track-layers.html#cb156-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclabel</span>(<span class="at">chrom_data =</span> chrom_hg19,</span>
+<span id="cb156-5"><a href="geom-genomic-track-layers.html#cb156-5" tabindex="-1"></a>                         <span class="at">link_col =</span> circlize<span class="sc">::</span><span class="fu">rand_color</span>(<span class="dv">24</span>),</span>
+<span id="cb156-6"><a href="geom-genomic-track-layers.html#cb156-6" tabindex="-1"></a>                         <span class="at">label.col =</span> circlize<span class="sc">::</span><span class="fu">rand_color</span>(<span class="dv">24</span>))</span></code></pre></div>
+<p><img src="local_images/150.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackgenomiclabel2" class="section level2 hasAnchor" number="5.11">
+<h2><span class="header-section-number">5.11</span> geom_trackgenomiclabel2<a href="geom-genomic-track-layers.html#geom_trackgenomiclabel2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>geom_trackgenomiclabel2</strong> will use enough space to adjust the labels rather than put them into each
+sector.</p>
+<hr />
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="geom-genomic-track-layers.html#cb157-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
+<span id="cb157-2"><a href="geom-genomic-track-layers.html#cb157-2" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">50</span>, <span class="at">fun =</span> <span class="cf">function</span>(k) <span class="fu">sample</span>(letters, k, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb157-3"><a href="geom-genomic-track-layers.html#cb157-3" tabindex="-1"></a>bed<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">paste0</span>(<span class="st">&quot;gene &quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">55</span>),<span class="dv">55</span>,<span class="at">replace =</span> F)</span>
+<span id="cb157-4"><a href="geom-genomic-track-layers.html#cb157-4" tabindex="-1"></a></span>
+<span id="cb157-5"><a href="geom-genomic-track-layers.html#cb157-5" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb157-6"><a href="geom-genomic-track-layers.html#cb157-6" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb157-7"><a href="geom-genomic-track-layers.html#cb157-7" tabindex="-1"></a>                   <span class="at">label =</span> label)) <span class="sc">+</span></span>
+<span id="cb157-8"><a href="geom-genomic-track-layers.html#cb157-8" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclabel2</span>(<span class="fu">aes</span>(<span class="at">r0 =</span> <span class="fl">0.7</span>,<span class="at">r1 =</span> <span class="fl">0.7</span>),<span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/151.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="geom-genomic-track-layers.html#cb158-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb158-2"><a href="geom-genomic-track-layers.html#cb158-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb158-3"><a href="geom-genomic-track-layers.html#cb158-3" tabindex="-1"></a>                   <span class="at">label =</span> label)) <span class="sc">+</span></span>
+<span id="cb158-4"><a href="geom-genomic-track-layers.html#cb158-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclabel2</span>(<span class="fu">aes</span>(<span class="at">r0 =</span> <span class="fl">0.7</span>,<span class="at">r1 =</span> <span class="fl">0.7</span>),<span class="at">chrom_data =</span> chrom_hg19,</span>
+<span id="cb158-5"><a href="geom-genomic-track-layers.html#cb158-5" tabindex="-1"></a>                          <span class="at">link_pos =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb158-6"><a href="geom-genomic-track-layers.html#cb158-6" tabindex="-1"></a>                          <span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/152.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="geom-genomic-track-layers.html#cb159-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb159-2"><a href="geom-genomic-track-layers.html#cb159-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb159-3"><a href="geom-genomic-track-layers.html#cb159-3" tabindex="-1"></a>                   <span class="at">label =</span> label,<span class="at">color =</span> chr)) <span class="sc">+</span></span>
+<span id="cb159-4"><a href="geom-genomic-track-layers.html#cb159-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclabel2</span>(<span class="fu">aes</span>(<span class="at">r0 =</span> <span class="fl">0.7</span>,<span class="at">r1 =</span> <span class="fl">0.7</span>),</span>
+<span id="cb159-5"><a href="geom-genomic-track-layers.html#cb159-5" tabindex="-1"></a>                          <span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/153.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="geom-genomic-track-layers.html#cb160-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb160-2"><a href="geom-genomic-track-layers.html#cb160-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb160-3"><a href="geom-genomic-track-layers.html#cb160-3" tabindex="-1"></a>                   <span class="at">label =</span> label)) <span class="sc">+</span></span>
+<span id="cb160-4"><a href="geom-genomic-track-layers.html#cb160-4" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclabel2</span>(<span class="fu">aes</span>(<span class="at">r0 =</span> <span class="fl">0.5</span>,<span class="at">r1 =</span> <span class="fl">0.5</span>),<span class="at">chrom_data =</span> chrom_hg19,</span>
+<span id="cb160-5"><a href="geom-genomic-track-layers.html#cb160-5" tabindex="-1"></a>                          <span class="at">strip.label =</span> F) <span class="sc">+</span></span>
+<span id="cb160-6"><a href="geom-genomic-track-layers.html#cb160-6" tabindex="-1"></a>  <span class="fu">geom_trackgenomiclabel</span>(<span class="fu">aes</span>(<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="fl">0.8</span>),</span>
+<span id="cb160-7"><a href="geom-genomic-track-layers.html#cb160-7" tabindex="-1"></a>                         <span class="at">link_pos =</span> <span class="st">&quot;bottom&quot;</span>,<span class="at">strip.label =</span> F,</span>
+<span id="cb160-8"><a href="geom-genomic-track-layers.html#cb160-8" tabindex="-1"></a>                         <span class="at">chrom_data =</span> chrom_hg19)</span></code></pre></div>
+<p><img src="local_images/154.png" style="width:100.0%" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="geom-track-layers.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="geom-chorddiagram.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-Geom_genomic_track_layers.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

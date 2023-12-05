@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Geom track layers | ggcirclize Reference Book</title>
+  <meta name="description" content="This is a detailed documentation of ggcirclize package." />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Geom track layers | ggcirclize Reference Book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a detailed documentation of ggcirclize package." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Geom track layers | ggcirclize Reference Book" />
+  
+  <meta name="twitter:description" content="This is a detailed documentation of ggcirclize package." />
+  
+
+<meta name="author" content="Jun Zhang" />
+
+
+<meta name="date" content="2023-12-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="geom-arc-layers.html"/>
+<link rel="next" href="geom-genomic-track-layers.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ggChIPvis manual documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i><b>1.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html"><i class="fa fa-check"></i><b>2</b> Low level arcGrobs</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcsectorgrob"><i class="fa fa-check"></i><b>2.1</b> arcSectorGrob</a></li>
+<li class="chapter" data-level="2.2" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcaxisgrob"><i class="fa fa-check"></i><b>2.2</b> arcAxisGrob</a></li>
+<li class="chapter" data-level="2.3" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcpointgrob"><i class="fa fa-check"></i><b>2.3</b> arcPointGrob</a></li>
+<li class="chapter" data-level="2.4" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcsegmentsgrob"><i class="fa fa-check"></i><b>2.4</b> arcSegmentsGrob</a></li>
+<li class="chapter" data-level="2.5" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinesgrob"><i class="fa fa-check"></i><b>2.5</b> arcLinesGrob</a></li>
+<li class="chapter" data-level="2.6" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcrectgrob"><i class="fa fa-check"></i><b>2.6</b> arcRectGrob</a></li>
+<li class="chapter" data-level="2.7" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcpolygongrob"><i class="fa fa-check"></i><b>2.7</b> arcPolygonGrob</a></li>
+<li class="chapter" data-level="2.8" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinksgrob"><i class="fa fa-check"></i><b>2.8</b> arcLinksGrob</a></li>
+<li class="chapter" data-level="2.9" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinks2grob"><i class="fa fa-check"></i><b>2.9</b> arcLinks2Grob</a></li>
+<li class="chapter" data-level="2.10" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arctextgrob"><i class="fa fa-check"></i><b>2.10</b> arcTextGrob</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html"><i class="fa fa-check"></i><b>3</b> Geom arc layers</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpoint"><i class="fa fa-check"></i><b>3.1</b> geom_arcpoint</a></li>
+<li class="chapter" data-level="3.2" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcsegment"><i class="fa fa-check"></i><b>3.2</b> geom_arcsegment</a></li>
+<li class="chapter" data-level="3.3" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcline"><i class="fa fa-check"></i><b>3.3</b> geom_arcline</a></li>
+<li class="chapter" data-level="3.4" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpath"><i class="fa fa-check"></i><b>3.4</b> geom_arcpath</a></li>
+<li class="chapter" data-level="3.5" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpolygon"><i class="fa fa-check"></i><b>3.5</b> geom_arcpolygon</a></li>
+<li class="chapter" data-level="3.6" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcrect"><i class="fa fa-check"></i><b>3.6</b> geom_arcrect</a></li>
+<li class="chapter" data-level="3.7" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arctile"><i class="fa fa-check"></i><b>3.7</b> geom_arctile</a></li>
+<li class="chapter" data-level="3.8" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcbar"><i class="fa fa-check"></i><b>3.8</b> geom_arcbar</a></li>
+<li class="chapter" data-level="3.9" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arccol"><i class="fa fa-check"></i><b>3.9</b> geom_arccol</a></li>
+<li class="chapter" data-level="3.10" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcribbon"><i class="fa fa-check"></i><b>3.10</b> geom_arcribbon</a></li>
+<li class="chapter" data-level="3.11" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcviolin"><i class="fa fa-check"></i><b>3.11</b> geom_arcviolin</a></li>
+<li class="chapter" data-level="3.12" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcboxplot"><i class="fa fa-check"></i><b>3.12</b> geom_arcboxplot</a></li>
+<li class="chapter" data-level="3.13" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcarea"><i class="fa fa-check"></i><b>3.13</b> geom_arcarea</a></li>
+<li class="chapter" data-level="3.14" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcdensity"><i class="fa fa-check"></i><b>3.14</b> geom_arcdensity</a></li>
+<li class="chapter" data-level="3.15" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_archistogram"><i class="fa fa-check"></i><b>3.15</b> geom_archistogram</a></li>
+<li class="chapter" data-level="3.16" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arctext"><i class="fa fa-check"></i><b>3.16</b> geom_arctext</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="geom-track-layers.html"><a href="geom-track-layers.html"><i class="fa fa-check"></i><b>4</b> Geom track layers</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackpoint"><i class="fa fa-check"></i><b>4.1</b> geom_trackpoint</a></li>
+<li class="chapter" data-level="4.2" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_tracktile"><i class="fa fa-check"></i><b>4.2</b> geom_tracktile</a></li>
+<li class="chapter" data-level="4.3" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackbar"><i class="fa fa-check"></i><b>4.3</b> geom_trackbar</a></li>
+<li class="chapter" data-level="4.4" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackcol"><i class="fa fa-check"></i><b>4.4</b> geom_trackcol</a></li>
+<li class="chapter" data-level="4.5" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackdensity"><i class="fa fa-check"></i><b>4.5</b> geom_trackdensity</a></li>
+<li class="chapter" data-level="4.6" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackhist"><i class="fa fa-check"></i><b>4.6</b> geom_trackhist</a></li>
+<li class="chapter" data-level="4.7" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackviolin"><i class="fa fa-check"></i><b>4.7</b> geom_trackviolin</a></li>
+<li class="chapter" data-level="4.8" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackboxplot"><i class="fa fa-check"></i><b>4.8</b> geom_trackboxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html"><i class="fa fa-check"></i><b>5</b> Geom genomic track layers</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#load-genome-data"><i class="fa fa-check"></i><b>5.1</b> Load genome data</a></li>
+<li class="chapter" data-level="5.2" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicpoint"><i class="fa fa-check"></i><b>5.2</b> geom_trackgenomicpoint</a></li>
+<li class="chapter" data-level="5.3" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicrect"><i class="fa fa-check"></i><b>5.3</b> geom_trackgenomicrect</a></li>
+<li class="chapter" data-level="5.4" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomictile"><i class="fa fa-check"></i><b>5.4</b> geom_trackgenomictile</a></li>
+<li class="chapter" data-level="5.5" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicarea"><i class="fa fa-check"></i><b>5.5</b> geom_trackgenomicarea</a></li>
+<li class="chapter" data-level="5.6" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicline"><i class="fa fa-check"></i><b>5.6</b> geom_trackgenomicline</a></li>
+<li class="chapter" data-level="5.7" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicdensity"><i class="fa fa-check"></i><b>5.7</b> geom_trackgenomicdensity</a></li>
+<li class="chapter" data-level="5.8" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicrainfall"><i class="fa fa-check"></i><b>5.8</b> geom_trackgenomicrainfall</a></li>
+<li class="chapter" data-level="5.9" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclink"><i class="fa fa-check"></i><b>5.9</b> geom_trackgenomiclink</a></li>
+<li class="chapter" data-level="5.10" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclabel"><i class="fa fa-check"></i><b>5.10</b> geom_trackgenomiclabel</a></li>
+<li class="chapter" data-level="5.11" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclabel2"><i class="fa fa-check"></i><b>5.11</b> geom_trackgenomiclabel2</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="geom-chorddiagram.html"><a href="geom-chorddiagram.html"><i class="fa fa-check"></i><b>6</b> Geom chordDiagram</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ggcirclize Reference Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="geom-track-layers" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Geom track layers<a href="geom-track-layers.html#geom-track-layers" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>To visualize data with various categories, ggplot2 can use <strong>facet_wrap</strong> and <strong>facet_grid</strong> to put
+different group data into different sub-panels. We can use different sectors to group by the data.</p>
+<p><strong>geom_track</strong>* layers works like <strong>facet_wrap</strong>. It puts different category data in each sector. We
+should give a mapping variable <strong>sector</strong> to define which column will be used.</p>
+<hr />
+<div id="geom_trackpoint" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> geom_trackpoint<a href="geom-track-layers.html#geom_trackpoint" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="geom-track-layers.html#cb105-1" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars,<span class="fu">aes</span>(<span class="at">x =</span> mpg,<span class="at">y =</span> disp,<span class="at">color =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb105-2"><a href="geom-track-layers.html#cb105-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb105-3"><a href="geom-track-layers.html#cb105-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>cyl)</span></code></pre></div>
+<p><img src="local_images/103.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="geom-track-layers.html#cb106-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(<span class="at">data =</span> mtcars,</span>
+<span id="cb106-2"><a href="geom-track-layers.html#cb106-2" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mpg,<span class="at">y =</span> disp,<span class="at">sector =</span> cyl,<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb106-3"><a href="geom-track-layers.html#cb106-3" tabindex="-1"></a>                         <span class="at">color =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb106-4"><a href="geom-track-layers.html#cb106-4" tabindex="-1"></a>  <span class="fu">geom_trackpoint</span>()</span></code></pre></div>
+<p><img src="local_images/104.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="geom-track-layers.html#cb107-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(<span class="at">data =</span> mtcars,</span>
+<span id="cb107-2"><a href="geom-track-layers.html#cb107-2" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mpg,<span class="at">y =</span> disp,<span class="at">sector =</span> cyl,<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb107-3"><a href="geom-track-layers.html#cb107-3" tabindex="-1"></a>                         <span class="at">color =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb107-4"><a href="geom-track-layers.html#cb107-4" tabindex="-1"></a>  <span class="fu">geom_trackpoint</span>(<span class="at">xAxis.params =</span> <span class="fu">list</span>(<span class="at">pos =</span> <span class="st">&quot;bottom&quot;</span>))</span></code></pre></div>
+<p><img src="local_images/105.png" style="width:100.0%" /></p>
+<p><strong>sector.gap</strong> change the gap between sectors:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="geom-track-layers.html#cb108-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(<span class="at">data =</span> mtcars,</span>
+<span id="cb108-2"><a href="geom-track-layers.html#cb108-2" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mpg,<span class="at">y =</span> disp,<span class="at">sector =</span> cyl,<span class="at">end =</span> <span class="dv">360</span>,</span>
+<span id="cb108-3"><a href="geom-track-layers.html#cb108-3" tabindex="-1"></a>                         <span class="at">color =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb108-4"><a href="geom-track-layers.html#cb108-4" tabindex="-1"></a>  <span class="fu">geom_trackpoint</span>(<span class="at">sector.gap =</span> <span class="dv">20</span>,<span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/106.png" style="width:100.0%" /></p>
+<p>You can set <strong>scales</strong> with <strong>fixed/free/free_x/free_y</strong> to adjust x and y scale range for each sector:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="geom-track-layers.html#cb109-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(<span class="at">data =</span> mtcars,</span>
+<span id="cb109-2"><a href="geom-track-layers.html#cb109-2" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mpg,<span class="at">y =</span> disp,<span class="at">sector =</span> cyl,</span>
+<span id="cb109-3"><a href="geom-track-layers.html#cb109-3" tabindex="-1"></a>                         <span class="at">color =</span> <span class="fu">factor</span>(cyl),</span>
+<span id="cb109-4"><a href="geom-track-layers.html#cb109-4" tabindex="-1"></a>                         <span class="at">start =</span> <span class="dv">0</span>,<span class="at">end =</span> <span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb109-5"><a href="geom-track-layers.html#cb109-5" tabindex="-1"></a>  <span class="fu">geom_trackpoint</span>(<span class="at">sector.gap =</span> <span class="dv">20</span>,<span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/107.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="geom-track-layers.html#cb110-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(<span class="at">data =</span> mtcars,</span>
+<span id="cb110-2"><a href="geom-track-layers.html#cb110-2" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mpg,<span class="at">y =</span> disp,<span class="at">sector =</span> cyl,</span>
+<span id="cb110-3"><a href="geom-track-layers.html#cb110-3" tabindex="-1"></a>                         <span class="at">color =</span> <span class="fu">factor</span>(cyl),</span>
+<span id="cb110-4"><a href="geom-track-layers.html#cb110-4" tabindex="-1"></a>                         <span class="at">start =</span> <span class="dv">0</span>,<span class="at">end =</span> <span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb110-5"><a href="geom-track-layers.html#cb110-5" tabindex="-1"></a>  <span class="fu">geom_trackpoint</span>(<span class="at">sector.gap =</span> <span class="dv">20</span>,<span class="at">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/108.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="geom-track-layers.html#cb111-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
+<span id="cb111-2"><a href="geom-track-layers.html#cb111-2" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="at">length =</span> <span class="dv">400</span>),<span class="dv">400</span>,<span class="at">replace =</span> T),<span class="at">ncol =</span> <span class="dv">20</span>)</span>
+<span id="cb111-3"><a href="geom-track-layers.html#cb111-3" tabindex="-1"></a><span class="fu">rownames</span>(mat) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;gene&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb111-4"><a href="geom-track-layers.html#cb111-4" tabindex="-1"></a><span class="fu">colnames</span>(mat) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;samp&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb111-5"><a href="geom-track-layers.html#cb111-5" tabindex="-1"></a>mat_long <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(mat)</span>
+<span id="cb111-6"><a href="geom-track-layers.html#cb111-6" tabindex="-1"></a>mat_long<span class="sc">$</span>gp <span class="ot">&lt;-</span> <span class="fu">rep</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],<span class="dv">50</span>)</span>
+<span id="cb111-7"><a href="geom-track-layers.html#cb111-7" tabindex="-1"></a></span>
+<span id="cb111-8"><a href="geom-track-layers.html#cb111-8" tabindex="-1"></a><span class="fu">ggcirclize</span>(<span class="at">data =</span> mat_long,</span>
+<span id="cb111-9"><a href="geom-track-layers.html#cb111-9" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Var1,<span class="at">y =</span> Var2,<span class="at">size =</span> value,<span class="at">color =</span> value,</span>
+<span id="cb111-10"><a href="geom-track-layers.html#cb111-10" tabindex="-1"></a>                         <span class="at">sector =</span> gp,<span class="at">end =</span> <span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb111-11"><a href="geom-track-layers.html#cb111-11" tabindex="-1"></a>  <span class="fu">geom_trackpoint</span>(<span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>,<span class="at">sector.gap =</span> <span class="dv">20</span>,<span class="at">scales =</span> <span class="st">&quot;fixed&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/109.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="geom-track-layers.html#cb112-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(<span class="at">data =</span> mat_long,</span>
+<span id="cb112-2"><a href="geom-track-layers.html#cb112-2" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Var1,<span class="at">y =</span> Var2,<span class="at">size =</span> value,<span class="at">color =</span> value,</span>
+<span id="cb112-3"><a href="geom-track-layers.html#cb112-3" tabindex="-1"></a>                         <span class="at">sector =</span> gp,<span class="at">end =</span> <span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb112-4"><a href="geom-track-layers.html#cb112-4" tabindex="-1"></a>  <span class="fu">geom_trackpoint</span>(<span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>,<span class="at">sector.gap =</span> <span class="dv">20</span>,<span class="at">scales =</span> <span class="st">&quot;free_x&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/110.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_tracktile" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> geom_tracktile<a href="geom-track-layers.html#geom_tracktile" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="geom-track-layers.html#cb113-1" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">scale</span>(USArrests)</span>
+<span id="cb113-2"><a href="geom-track-layers.html#cb113-2" tabindex="-1"></a>mat.long <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(mat)</span>
+<span id="cb113-3"><a href="geom-track-layers.html#cb113-3" tabindex="-1"></a><span class="co"># mat.long$gp &lt;- rep(LETTERS[1:4],each = 50)</span></span>
+<span id="cb113-4"><a href="geom-track-layers.html#cb113-4" tabindex="-1"></a>mat.long<span class="sc">$</span>gp <span class="ot">&lt;-</span> <span class="fu">sample</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],<span class="dv">200</span>,<span class="at">replace =</span> T)</span>
+<span id="cb113-5"><a href="geom-track-layers.html#cb113-5" tabindex="-1"></a><span class="co"># mat.long$Var1 &lt;- sample(colnames(mat),200,replace = T)</span></span>
+<span id="cb113-6"><a href="geom-track-layers.html#cb113-6" tabindex="-1"></a></span>
+<span id="cb113-7"><a href="geom-track-layers.html#cb113-7" tabindex="-1"></a><span class="fu">ggplot</span>(mat.long,<span class="fu">aes</span>(<span class="at">x =</span> Var1,<span class="at">y =</span> Var2,<span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb113-8"><a href="geom-track-layers.html#cb113-8" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb113-9"><a href="geom-track-layers.html#cb113-9" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">&quot;green&quot;</span>,<span class="at">mid =</span> <span class="st">&quot;black&quot;</span>,<span class="at">high =</span> <span class="st">&quot;red&quot;</span>,<span class="at">midpoint =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb113-10"><a href="geom-track-layers.html#cb113-10" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>,<span class="at">hjust =</span> <span class="dv">1</span>,<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb113-11"><a href="geom-track-layers.html#cb113-11" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>gp,<span class="at">scales =</span> <span class="st">&quot;fixed&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/111.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="geom-track-layers.html#cb114-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(<span class="at">data =</span> mat.long,<span class="at">mg.t =</span> <span class="fl">2.5</span>,<span class="at">mg.b =</span> <span class="fl">2.5</span>,</span>
+<span id="cb114-2"><a href="geom-track-layers.html#cb114-2" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Var1,<span class="at">y =</span> Var2,<span class="at">fill =</span> value,</span>
+<span id="cb114-3"><a href="geom-track-layers.html#cb114-3" tabindex="-1"></a>                         <span class="at">sector =</span> gp,<span class="at">end =</span> <span class="dv">360</span>)) <span class="sc">+</span></span>
+<span id="cb114-4"><a href="geom-track-layers.html#cb114-4" tabindex="-1"></a>  <span class="fu">geom_tracktile</span>(<span class="at">add.yaxis =</span> T,<span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb114-5"><a href="geom-track-layers.html#cb114-5" tabindex="-1"></a>                 <span class="at">scales =</span> <span class="st">&quot;fixed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb114-6"><a href="geom-track-layers.html#cb114-6" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">&quot;green&quot;</span>,<span class="at">mid =</span> <span class="st">&quot;black&quot;</span>,<span class="at">high =</span> <span class="st">&quot;red&quot;</span>,<span class="at">midpoint =</span> <span class="dv">0</span>)</span></code></pre></div>
+<p><img src="local_images/112.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackbar" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> geom_trackbar<a href="geom-track-layers.html#geom_trackbar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="geom-track-layers.html#cb115-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(mpg,<span class="fu">aes</span>(<span class="at">x =</span> class,<span class="at">fill =</span> drv,<span class="at">sector =</span> drv)) <span class="sc">+</span></span>
+<span id="cb115-2"><a href="geom-track-layers.html#cb115-2" tabindex="-1"></a>  <span class="fu">geom_trackbar</span>(<span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>,<span class="at">sector.gap =</span> <span class="dv">20</span>,</span>
+<span id="cb115-3"><a href="geom-track-layers.html#cb115-3" tabindex="-1"></a>                <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/113.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="geom-track-layers.html#cb116-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(mpg,<span class="fu">aes</span>(<span class="at">x =</span> class,<span class="at">fill =</span> drv,<span class="at">sector =</span> drv)) <span class="sc">+</span></span>
+<span id="cb116-2"><a href="geom-track-layers.html#cb116-2" tabindex="-1"></a>  <span class="fu">geom_trackbar</span>(<span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb116-3"><a href="geom-track-layers.html#cb116-3" tabindex="-1"></a>                <span class="at">scales =</span> <span class="st">&quot;free_x&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/114.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackcol" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> geom_trackcol<a href="geom-track-layers.html#geom_trackcol" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="geom-track-layers.html#cb117-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>],<span class="at">y =</span> <span class="fu">abs</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>)),</span>
+<span id="cb117-2"><a href="geom-track-layers.html#cb117-2" tabindex="-1"></a>                 <span class="at">gp =</span> <span class="fu">sample</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],<span class="dv">20</span>,<span class="at">replace =</span> T))</span>
+<span id="cb117-3"><a href="geom-track-layers.html#cb117-3" tabindex="-1"></a></span>
+<span id="cb117-4"><a href="geom-track-layers.html#cb117-4" tabindex="-1"></a><span class="fu">ggcirclize</span>(df,<span class="fu">aes</span>(<span class="at">x =</span> x,<span class="at">y =</span> y,<span class="at">fill =</span> x,<span class="at">sector =</span> gp)) <span class="sc">+</span></span>
+<span id="cb117-5"><a href="geom-track-layers.html#cb117-5" tabindex="-1"></a>  <span class="fu">geom_trackcol</span>(<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>),<span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb117-6"><a href="geom-track-layers.html#cb117-6" tabindex="-1"></a>                 <span class="at">sector.gap =</span> <span class="dv">20</span>,<span class="at">width =</span> <span class="fl">0.5</span>,<span class="at">add.bg =</span> F,</span>
+<span id="cb117-7"><a href="geom-track-layers.html#cb117-7" tabindex="-1"></a>                 <span class="at">scales =</span> <span class="st">&quot;free_x&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/115.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackdensity" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> geom_trackdensity<a href="geom-track-layers.html#geom_trackdensity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="geom-track-layers.html#cb118-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(diamonds,<span class="fu">aes</span>(<span class="at">x =</span> depth,<span class="at">fill =</span> cut,<span class="at">sector =</span> cut)) <span class="sc">+</span></span>
+<span id="cb118-2"><a href="geom-track-layers.html#cb118-2" tabindex="-1"></a>  <span class="fu">geom_trackdensity</span>(<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>),<span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/116.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="geom-track-layers.html#cb119-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(diamonds,<span class="fu">aes</span>(<span class="at">x =</span> depth,<span class="at">fill =</span> cut,<span class="at">sector =</span> cut)) <span class="sc">+</span></span>
+<span id="cb119-2"><a href="geom-track-layers.html#cb119-2" tabindex="-1"></a>  <span class="fu">geom_trackdensity</span>(<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>),<span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb119-3"><a href="geom-track-layers.html#cb119-3" tabindex="-1"></a>                    <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/117.png" style="width:100.0%" />
+## geom_trackarea</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="geom-track-layers.html#cb120-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> weight, <span class="at">fill =</span> sex,<span class="at">sector =</span> sex)) <span class="sc">+</span></span>
+<span id="cb120-2"><a href="geom-track-layers.html#cb120-2" tabindex="-1"></a>  <span class="fu">geom_trackarea</span>(<span class="at">stat =</span><span class="st">&quot;bin&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/118.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackhist" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> geom_trackhist<a href="geom-track-layers.html#geom_trackhist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="geom-track-layers.html#cb121-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(diamonds,<span class="fu">aes</span>(<span class="at">x =</span> depth,<span class="at">fill =</span> color,<span class="at">sector =</span> color)) <span class="sc">+</span></span>
+<span id="cb121-2"><a href="geom-track-layers.html#cb121-2" tabindex="-1"></a>  <span class="fu">geom_trackhist</span>(<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>),<span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb121-3"><a href="geom-track-layers.html#cb121-3" tabindex="-1"></a>                 <span class="at">sector.gap =</span> <span class="dv">20</span>,</span>
+<span id="cb121-4"><a href="geom-track-layers.html#cb121-4" tabindex="-1"></a>                 <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/119.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackviolin" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> geom_trackviolin<a href="geom-track-layers.html#geom_trackviolin" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="geom-track-layers.html#cb122-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(dbox, <span class="fu">aes</span>(x, y,<span class="at">start =</span> <span class="dv">0</span>,<span class="at">end =</span> <span class="dv">360</span>,<span class="at">sector =</span> gp)) <span class="sc">+</span></span>
+<span id="cb122-2"><a href="geom-track-layers.html#cb122-2" tabindex="-1"></a>  <span class="fu">geom_trackviolin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> gp),<span class="at">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/120.png" style="width:100.0%" /></p>
+</div>
+<div id="geom_trackboxplot" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> geom_trackboxplot<a href="geom-track-layers.html#geom_trackboxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="geom-track-layers.html#cb123-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
+<span id="cb123-2"><a href="geom-track-layers.html#cb123-2" tabindex="-1"></a>dbox <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rep</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">26</span>],<span class="dv">50</span>),</span>
+<span id="cb123-3"><a href="geom-track-layers.html#cb123-3" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">50</span><span class="sc">*</span><span class="dv">26</span>),</span>
+<span id="cb123-4"><a href="geom-track-layers.html#cb123-4" tabindex="-1"></a>                   <span class="at">gp =</span> <span class="fu">sample</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],<span class="dv">26</span>,<span class="at">replace =</span> T))</span>
+<span id="cb123-5"><a href="geom-track-layers.html#cb123-5" tabindex="-1"></a></span>
+<span id="cb123-6"><a href="geom-track-layers.html#cb123-6" tabindex="-1"></a><span class="fu">ggcirclize</span>(dbox, <span class="fu">aes</span>(x, y,<span class="at">start =</span> <span class="dv">0</span>,<span class="at">end =</span> <span class="dv">360</span>,<span class="at">sector =</span> gp)) <span class="sc">+</span></span>
+<span id="cb123-7"><a href="geom-track-layers.html#cb123-7" tabindex="-1"></a>  <span class="fu">geom_trackboxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> gp),<span class="at">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/121.png" style="width:100.0%" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="geom-arc-layers.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="geom-genomic-track-layers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-Geom_arc_track_layers.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
