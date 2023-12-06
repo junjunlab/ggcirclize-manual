@@ -51,3 +51,10 @@ geom_trackgenomiclink
 geom_trackgenomiclabel
 geom_trackgenomiclabel2
 geom-chorddiagram
+add-significant-marks
+geom_tracktile2
+single-mark-annotation
+matrix-mark-annotation
+geom_trackgenomictile2
+single-mark-annotation-1
+matrix-mark-annotation-1
