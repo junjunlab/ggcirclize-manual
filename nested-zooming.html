@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Nested zooming | ggcirclize Reference Book</title>
+  <meta name="description" content="This is a detailed documentation of ggcirclize package." />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Nested zooming | ggcirclize Reference Book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a detailed documentation of ggcirclize package." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Nested zooming | ggcirclize Reference Book" />
+  
+  <meta name="twitter:description" content="This is a detailed documentation of ggcirclize package." />
+  
+
+<meta name="author" content="Jun Zhang" />
+
+
+<meta name="date" content="2023-12-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="add-significant-marks.html"/>
+<link rel="next" href="adding-gene-labels.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ggcirclize manual documentation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i><b>1.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html"><i class="fa fa-check"></i><b>2</b> Low level arcGrobs</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcsectorgrob"><i class="fa fa-check"></i><b>2.1</b> arcSectorGrob</a></li>
+<li class="chapter" data-level="2.2" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcaxisgrob"><i class="fa fa-check"></i><b>2.2</b> arcAxisGrob</a></li>
+<li class="chapter" data-level="2.3" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcpointgrob"><i class="fa fa-check"></i><b>2.3</b> arcPointGrob</a></li>
+<li class="chapter" data-level="2.4" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcsegmentsgrob"><i class="fa fa-check"></i><b>2.4</b> arcSegmentsGrob</a></li>
+<li class="chapter" data-level="2.5" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinesgrob"><i class="fa fa-check"></i><b>2.5</b> arcLinesGrob</a></li>
+<li class="chapter" data-level="2.6" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcrectgrob"><i class="fa fa-check"></i><b>2.6</b> arcRectGrob</a></li>
+<li class="chapter" data-level="2.7" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arcpolygongrob"><i class="fa fa-check"></i><b>2.7</b> arcPolygonGrob</a></li>
+<li class="chapter" data-level="2.8" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinksgrob"><i class="fa fa-check"></i><b>2.8</b> arcLinksGrob</a></li>
+<li class="chapter" data-level="2.9" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arclinks2grob"><i class="fa fa-check"></i><b>2.9</b> arcLinks2Grob</a></li>
+<li class="chapter" data-level="2.10" data-path="low-level-arcgrobs.html"><a href="low-level-arcgrobs.html#arctextgrob"><i class="fa fa-check"></i><b>2.10</b> arcTextGrob</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html"><i class="fa fa-check"></i><b>3</b> Geom arc layers</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpoint"><i class="fa fa-check"></i><b>3.1</b> geom_arcpoint</a></li>
+<li class="chapter" data-level="3.2" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcsegment"><i class="fa fa-check"></i><b>3.2</b> geom_arcsegment</a></li>
+<li class="chapter" data-level="3.3" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcline"><i class="fa fa-check"></i><b>3.3</b> geom_arcline</a></li>
+<li class="chapter" data-level="3.4" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpath"><i class="fa fa-check"></i><b>3.4</b> geom_arcpath</a></li>
+<li class="chapter" data-level="3.5" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcpolygon"><i class="fa fa-check"></i><b>3.5</b> geom_arcpolygon</a></li>
+<li class="chapter" data-level="3.6" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcrect"><i class="fa fa-check"></i><b>3.6</b> geom_arcrect</a></li>
+<li class="chapter" data-level="3.7" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arctile"><i class="fa fa-check"></i><b>3.7</b> geom_arctile</a></li>
+<li class="chapter" data-level="3.8" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcbar"><i class="fa fa-check"></i><b>3.8</b> geom_arcbar</a></li>
+<li class="chapter" data-level="3.9" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arccol"><i class="fa fa-check"></i><b>3.9</b> geom_arccol</a></li>
+<li class="chapter" data-level="3.10" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcribbon"><i class="fa fa-check"></i><b>3.10</b> geom_arcribbon</a></li>
+<li class="chapter" data-level="3.11" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcviolin"><i class="fa fa-check"></i><b>3.11</b> geom_arcviolin</a></li>
+<li class="chapter" data-level="3.12" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcboxplot"><i class="fa fa-check"></i><b>3.12</b> geom_arcboxplot</a></li>
+<li class="chapter" data-level="3.13" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcarea"><i class="fa fa-check"></i><b>3.13</b> geom_arcarea</a></li>
+<li class="chapter" data-level="3.14" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arcdensity"><i class="fa fa-check"></i><b>3.14</b> geom_arcdensity</a></li>
+<li class="chapter" data-level="3.15" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_archistogram"><i class="fa fa-check"></i><b>3.15</b> geom_archistogram</a></li>
+<li class="chapter" data-level="3.16" data-path="geom-arc-layers.html"><a href="geom-arc-layers.html#geom_arctext"><i class="fa fa-check"></i><b>3.16</b> geom_arctext</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="geom-track-layers.html"><a href="geom-track-layers.html"><i class="fa fa-check"></i><b>4</b> Geom track layers</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackpoint"><i class="fa fa-check"></i><b>4.1</b> geom_trackpoint</a></li>
+<li class="chapter" data-level="4.2" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_tracktile"><i class="fa fa-check"></i><b>4.2</b> geom_tracktile</a></li>
+<li class="chapter" data-level="4.3" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackbar"><i class="fa fa-check"></i><b>4.3</b> geom_trackbar</a></li>
+<li class="chapter" data-level="4.4" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackcol"><i class="fa fa-check"></i><b>4.4</b> geom_trackcol</a></li>
+<li class="chapter" data-level="4.5" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackdensity"><i class="fa fa-check"></i><b>4.5</b> geom_trackdensity</a></li>
+<li class="chapter" data-level="4.6" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackhist"><i class="fa fa-check"></i><b>4.6</b> geom_trackhist</a></li>
+<li class="chapter" data-level="4.7" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackviolin"><i class="fa fa-check"></i><b>4.7</b> geom_trackviolin</a></li>
+<li class="chapter" data-level="4.8" data-path="geom-track-layers.html"><a href="geom-track-layers.html#geom_trackboxplot"><i class="fa fa-check"></i><b>4.8</b> geom_trackboxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html"><i class="fa fa-check"></i><b>5</b> Geom genomic track layers</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#load-genome-data"><i class="fa fa-check"></i><b>5.1</b> Load genome data</a></li>
+<li class="chapter" data-level="5.2" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicpoint"><i class="fa fa-check"></i><b>5.2</b> geom_trackgenomicpoint</a></li>
+<li class="chapter" data-level="5.3" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicrect"><i class="fa fa-check"></i><b>5.3</b> geom_trackgenomicrect</a></li>
+<li class="chapter" data-level="5.4" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomictile"><i class="fa fa-check"></i><b>5.4</b> geom_trackgenomictile</a></li>
+<li class="chapter" data-level="5.5" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicarea"><i class="fa fa-check"></i><b>5.5</b> geom_trackgenomicarea</a></li>
+<li class="chapter" data-level="5.6" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicline"><i class="fa fa-check"></i><b>5.6</b> geom_trackgenomicline</a></li>
+<li class="chapter" data-level="5.7" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicdensity"><i class="fa fa-check"></i><b>5.7</b> geom_trackgenomicdensity</a></li>
+<li class="chapter" data-level="5.8" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomicrainfall"><i class="fa fa-check"></i><b>5.8</b> geom_trackgenomicrainfall</a></li>
+<li class="chapter" data-level="5.9" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclink"><i class="fa fa-check"></i><b>5.9</b> geom_trackgenomiclink</a></li>
+<li class="chapter" data-level="5.10" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclabel"><i class="fa fa-check"></i><b>5.10</b> geom_trackgenomiclabel</a></li>
+<li class="chapter" data-level="5.11" data-path="geom-genomic-track-layers.html"><a href="geom-genomic-track-layers.html#geom_trackgenomiclabel2"><i class="fa fa-check"></i><b>5.11</b> geom_trackgenomiclabel2</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="geom-chorddiagram.html"><a href="geom-chorddiagram.html"><i class="fa fa-check"></i><b>6</b> Geom chordDiagram</a></li>
+<li class="chapter" data-level="7" data-path="add-significant-marks.html"><a href="add-significant-marks.html"><i class="fa fa-check"></i><b>7</b> Add significant marks</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="add-significant-marks.html"><a href="add-significant-marks.html#geom_tracktile2"><i class="fa fa-check"></i><b>7.1</b> geom_tracktile2</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="add-significant-marks.html"><a href="add-significant-marks.html#single-mark-annotation"><i class="fa fa-check"></i><b>7.1.1</b> single mark annotation</a></li>
+<li class="chapter" data-level="7.1.2" data-path="add-significant-marks.html"><a href="add-significant-marks.html#matrix-mark-annotation"><i class="fa fa-check"></i><b>7.1.2</b> matrix mark annotation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="add-significant-marks.html"><a href="add-significant-marks.html#geom_trackgenomictile2"><i class="fa fa-check"></i><b>7.2</b> geom_trackgenomictile2</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="add-significant-marks.html"><a href="add-significant-marks.html#single-mark-annotation-1"><i class="fa fa-check"></i><b>7.2.1</b> single mark annotation</a></li>
+<li class="chapter" data-level="7.2.2" data-path="add-significant-marks.html"><a href="add-significant-marks.html#matrix-mark-annotation-1"><i class="fa fa-check"></i><b>7.2.2</b> matrix mark annotation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="nested-zooming.html"><a href="nested-zooming.html"><i class="fa fa-check"></i><b>8</b> Nested zooming</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="nested-zooming.html"><a href="nested-zooming.html#intro"><i class="fa fa-check"></i><b>8.1</b> Intro</a></li>
+<li class="chapter" data-level="8.2" data-path="nested-zooming.html"><a href="nested-zooming.html#zooming-with-other-layers"><i class="fa fa-check"></i><b>8.2</b> Zooming with other layers</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="adding-gene-labels.html"><a href="adding-gene-labels.html"><i class="fa fa-check"></i><b>9</b> Adding gene labels</a></li>
+<li class="chapter" data-level="10" data-path="createing-your-own-genome-track.html"><a href="createing-your-own-genome-track.html"><i class="fa fa-check"></i><b>10</b> Createing your own genome track</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ggcirclize Reference Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="nested-zooming" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Nested zooming<a href="nested-zooming.html#nested-zooming" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>To visualize or highlight some specific regions on genome, a convenient way is to draw a new
+track or sector to show the target region. <strong>geom_genomicNestedZoom</strong> can zoom target regions
+with different geom layers.</p>
+<hr />
+<div id="intro" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Intro<a href="nested-zooming.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="nested-zooming.html#cb188-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
+<span id="cb188-2"><a href="nested-zooming.html#cb188-2" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">600</span>)</span>
+<span id="cb188-3"><a href="nested-zooming.html#cb188-3" tabindex="-1"></a></span>
+<span id="cb188-4"><a href="nested-zooming.html#cb188-4" tabindex="-1"></a>zoom <span class="ot">&lt;-</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">20</span>)[,<span class="sc">-</span><span class="dv">4</span>]</span>
+<span id="cb188-5"><a href="nested-zooming.html#cb188-5" tabindex="-1"></a></span>
+<span id="cb188-6"><a href="nested-zooming.html#cb188-6" tabindex="-1"></a><span class="co"># check</span></span>
+<span id="cb188-7"><a href="nested-zooming.html#cb188-7" tabindex="-1"></a><span class="fu">head</span>(zoom,<span class="dv">3</span>)</span>
+<span id="cb188-8"><a href="nested-zooming.html#cb188-8" tabindex="-1"></a><span class="co">#    chr     start       end</span></span>
+<span id="cb188-9"><a href="nested-zooming.html#cb188-9" tabindex="-1"></a><span class="co"># 1 chr1  52965429 124887955</span></span>
+<span id="cb188-10"><a href="nested-zooming.html#cb188-10" tabindex="-1"></a><span class="co"># 2 chr1 168604490 233330834</span></span>
+<span id="cb188-11"><a href="nested-zooming.html#cb188-11" tabindex="-1"></a><span class="co"># 3 chr2   2089280   5242329</span></span>
+<span id="cb188-12"><a href="nested-zooming.html#cb188-12" tabindex="-1"></a></span>
+<span id="cb188-13"><a href="nested-zooming.html#cb188-13" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="dv">1</span>,</span>
+<span id="cb188-14"><a href="nested-zooming.html#cb188-14" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb188-15"><a href="nested-zooming.html#cb188-15" tabindex="-1"></a>                   <span class="at">value =</span> value1,</span>
+<span id="cb188-16"><a href="nested-zooming.html#cb188-16" tabindex="-1"></a>                   <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb188-17"><a href="nested-zooming.html#cb188-17" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom)</span></code></pre></div>
+<p><img src="local_images/176.png" style="width:100.0%" /></p>
+<p>Add origin point layer:</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="nested-zooming.html#cb189-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="dv">1</span>,</span>
+<span id="cb189-2"><a href="nested-zooming.html#cb189-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb189-3"><a href="nested-zooming.html#cb189-3" tabindex="-1"></a>                   <span class="at">value =</span> value1,</span>
+<span id="cb189-4"><a href="nested-zooming.html#cb189-4" tabindex="-1"></a>                   <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>,</span>
+<span id="cb189-5"><a href="nested-zooming.html#cb189-5" tabindex="-1"></a>                   <span class="at">color =</span> value1)) <span class="sc">+</span></span>
+<span id="cb189-6"><a href="nested-zooming.html#cb189-6" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="at">add.xaxis =</span> F) <span class="sc">+</span></span>
+<span id="cb189-7"><a href="nested-zooming.html#cb189-7" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom)</span></code></pre></div>
+<p><img src="local_images/177.png" style="width:100.0%" /></p>
+<p><strong>zoom.free.sec</strong> can free the zoomed sector size rather than fixed size which is restricted by their
+origin sector:</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="nested-zooming.html#cb190-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="dv">1</span>,</span>
+<span id="cb190-2"><a href="nested-zooming.html#cb190-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb190-3"><a href="nested-zooming.html#cb190-3" tabindex="-1"></a>                   <span class="at">value =</span> value1,</span>
+<span id="cb190-4"><a href="nested-zooming.html#cb190-4" tabindex="-1"></a>                   <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>,</span>
+<span id="cb190-5"><a href="nested-zooming.html#cb190-5" tabindex="-1"></a>                   <span class="at">color =</span> value1)) <span class="sc">+</span></span>
+<span id="cb190-6"><a href="nested-zooming.html#cb190-6" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="at">add.xaxis =</span> F) <span class="sc">+</span></span>
+<span id="cb190-7"><a href="nested-zooming.html#cb190-7" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom,<span class="at">nested_fill =</span> <span class="fu">rand_color</span>(<span class="dv">24</span>),</span>
+<span id="cb190-8"><a href="nested-zooming.html#cb190-8" tabindex="-1"></a>                         <span class="at">zoom.free.sec =</span> T)</span></code></pre></div>
+<p><img src="local_images/178.png" style="width:100.0%" /></p>
+<p>Adjust the zoom sector gap space:</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="nested-zooming.html#cb191-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="dv">1</span>,</span>
+<span id="cb191-2"><a href="nested-zooming.html#cb191-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb191-3"><a href="nested-zooming.html#cb191-3" tabindex="-1"></a>                   <span class="at">value =</span> value1,</span>
+<span id="cb191-4"><a href="nested-zooming.html#cb191-4" tabindex="-1"></a>                   <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>,</span>
+<span id="cb191-5"><a href="nested-zooming.html#cb191-5" tabindex="-1"></a>                   <span class="at">color =</span> value1)) <span class="sc">+</span></span>
+<span id="cb191-6"><a href="nested-zooming.html#cb191-6" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="at">add.xaxis =</span> F) <span class="sc">+</span></span>
+<span id="cb191-7"><a href="nested-zooming.html#cb191-7" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom,<span class="at">nested_fill =</span> <span class="fu">rand_color</span>(<span class="dv">24</span>),</span>
+<span id="cb191-8"><a href="nested-zooming.html#cb191-8" tabindex="-1"></a>                         <span class="at">zoom.free.sec =</span> T,</span>
+<span id="cb191-9"><a href="nested-zooming.html#cb191-9" tabindex="-1"></a>                         <span class="at">sub.zoom.gap =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="local_images/179.png" style="width:100.0%" /></p>
+<p>Extend the sector start and end degree:</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="nested-zooming.html#cb192-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="dv">1</span>,</span>
+<span id="cb192-2"><a href="nested-zooming.html#cb192-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb192-3"><a href="nested-zooming.html#cb192-3" tabindex="-1"></a>                   <span class="at">value =</span> value1,</span>
+<span id="cb192-4"><a href="nested-zooming.html#cb192-4" tabindex="-1"></a>                   <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>,</span>
+<span id="cb192-5"><a href="nested-zooming.html#cb192-5" tabindex="-1"></a>                   <span class="at">color =</span> value1)) <span class="sc">+</span></span>
+<span id="cb192-6"><a href="nested-zooming.html#cb192-6" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="at">add.xaxis =</span> F,<span class="at">sector.gap =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb192-7"><a href="nested-zooming.html#cb192-7" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom,</span>
+<span id="cb192-8"><a href="nested-zooming.html#cb192-8" tabindex="-1"></a>                         <span class="at">sector.gap =</span> <span class="dv">10</span>,</span>
+<span id="cb192-9"><a href="nested-zooming.html#cb192-9" tabindex="-1"></a>                         <span class="at">extend.start =</span> <span class="dv">5</span>,</span>
+<span id="cb192-10"><a href="nested-zooming.html#cb192-10" tabindex="-1"></a>                         <span class="at">extend.end =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="local_images/180.png" style="width:100.0%" /></p>
+<p>Adjust the zoom track position:</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="nested-zooming.html#cb193-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.5</span>,<span class="at">r1 =</span> <span class="fl">0.7</span>,</span>
+<span id="cb193-2"><a href="nested-zooming.html#cb193-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb193-3"><a href="nested-zooming.html#cb193-3" tabindex="-1"></a>                   <span class="at">value =</span> value1,</span>
+<span id="cb193-4"><a href="nested-zooming.html#cb193-4" tabindex="-1"></a>                   <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>,</span>
+<span id="cb193-5"><a href="nested-zooming.html#cb193-5" tabindex="-1"></a>                   <span class="at">color =</span> value1)) <span class="sc">+</span></span>
+<span id="cb193-6"><a href="nested-zooming.html#cb193-6" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="at">add.xaxis =</span> F,<span class="at">sector.gap =</span> <span class="dv">5</span>,</span>
+<span id="cb193-7"><a href="nested-zooming.html#cb193-7" tabindex="-1"></a>                         <span class="at">strip.label.pos =</span> <span class="st">&quot;bottom&quot;</span>,<span class="at">strip.label.space =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb193-8"><a href="nested-zooming.html#cb193-8" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom,</span>
+<span id="cb193-9"><a href="nested-zooming.html#cb193-9" tabindex="-1"></a>                         <span class="at">sector.gap =</span> <span class="dv">5</span>,</span>
+<span id="cb193-10"><a href="nested-zooming.html#cb193-10" tabindex="-1"></a>                         <span class="at">extend.start =</span> <span class="fl">2.5</span>,</span>
+<span id="cb193-11"><a href="nested-zooming.html#cb193-11" tabindex="-1"></a>                         <span class="at">extend.end =</span> <span class="fl">2.5</span>,</span>
+<span id="cb193-12"><a href="nested-zooming.html#cb193-12" tabindex="-1"></a>                         <span class="at">zoom_pos =</span> <span class="st">&quot;top&quot;</span>,</span>
+<span id="cb193-13"><a href="nested-zooming.html#cb193-13" tabindex="-1"></a>                         <span class="at">nested_fill =</span> <span class="fu">rand_color</span>(<span class="dv">24</span>))</span></code></pre></div>
+<p><img src="local_images/181.png" style="width:100.0%" /></p>
+</div>
+<div id="zooming-with-other-layers" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Zooming with other layers<a href="nested-zooming.html#zooming-with-other-layers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The default <strong>geom</strong> is <strong>point</strong>:</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="nested-zooming.html#cb194-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="dv">1</span>,</span>
+<span id="cb194-2"><a href="nested-zooming.html#cb194-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb194-3"><a href="nested-zooming.html#cb194-3" tabindex="-1"></a>                   <span class="at">value =</span> value1,</span>
+<span id="cb194-4"><a href="nested-zooming.html#cb194-4" tabindex="-1"></a>                   <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb194-5"><a href="nested-zooming.html#cb194-5" tabindex="-1"></a>  <span class="fu">geom_trackgenomicline</span>(<span class="at">add.xaxis =</span> F) <span class="sc">+</span></span>
+<span id="cb194-6"><a href="nested-zooming.html#cb194-6" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom)</span></code></pre></div>
+<p><img src="local_images/182.png" style="width:100.0%" /></p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="nested-zooming.html#cb195-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="dv">1</span>,</span>
+<span id="cb195-2"><a href="nested-zooming.html#cb195-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb195-3"><a href="nested-zooming.html#cb195-3" tabindex="-1"></a>                   <span class="at">value =</span> value1,<span class="at">color =</span> chr,</span>
+<span id="cb195-4"><a href="nested-zooming.html#cb195-4" tabindex="-1"></a>                   <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb195-5"><a href="nested-zooming.html#cb195-5" tabindex="-1"></a>  <span class="fu">geom_trackgenomicline</span>(<span class="at">add.xaxis =</span> F,<span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb195-6"><a href="nested-zooming.html#cb195-6" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom,</span>
+<span id="cb195-7"><a href="nested-zooming.html#cb195-7" tabindex="-1"></a>                         <span class="at">geom =</span> <span class="st">&quot;line&quot;</span>,</span>
+<span id="cb195-8"><a href="nested-zooming.html#cb195-8" tabindex="-1"></a>                         <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb195-9"><a href="nested-zooming.html#cb195-9" tabindex="-1"></a>  <span class="fu">geom_trackgenomicpoint</span>(<span class="fu">aes</span>(<span class="at">r0 =</span> <span class="fl">0.4</span>,<span class="at">r1 =</span> <span class="fl">0.5</span>),</span>
+<span id="cb195-10"><a href="nested-zooming.html#cb195-10" tabindex="-1"></a>                         <span class="at">add.xaxis =</span> F,<span class="at">show.legend =</span> F,<span class="at">strip.label =</span> F)</span></code></pre></div>
+<p><img src="local_images/183.png" style="width:100.0%" /></p>
+<p><strong>geom_trackgenomicarea</strong>:</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="nested-zooming.html#cb196-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="dv">1</span>,</span>
+<span id="cb196-2"><a href="nested-zooming.html#cb196-2" tabindex="-1"></a>                   <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb196-3"><a href="nested-zooming.html#cb196-3" tabindex="-1"></a>                   <span class="at">value =</span> value1,<span class="at">fill =</span> chr,</span>
+<span id="cb196-4"><a href="nested-zooming.html#cb196-4" tabindex="-1"></a>                   <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb196-5"><a href="nested-zooming.html#cb196-5" tabindex="-1"></a>  <span class="fu">geom_trackgenomicarea</span>(<span class="at">add.xaxis =</span> F,<span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb196-6"><a href="nested-zooming.html#cb196-6" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom,<span class="at">color =</span> <span class="st">&quot;black&quot;</span>,<span class="at">show.legend =</span> F,</span>
+<span id="cb196-7"><a href="nested-zooming.html#cb196-7" tabindex="-1"></a>                         <span class="at">geom =</span> <span class="st">&quot;area&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/184.png" style="width:100.0%" /></p>
+<p><strong>geom_trackgenomicrect</strong>:</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="nested-zooming.html#cb197-1" tabindex="-1"></a><span class="fu">ggcirclize</span>(cytoband_hg19,</span>
+<span id="cb197-2"><a href="nested-zooming.html#cb197-2" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.8</span>,<span class="at">r1 =</span> <span class="dv">1</span>,</span>
+<span id="cb197-3"><a href="nested-zooming.html#cb197-3" tabindex="-1"></a>               <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb197-4"><a href="nested-zooming.html#cb197-4" tabindex="-1"></a>               <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb197-5"><a href="nested-zooming.html#cb197-5" tabindex="-1"></a>  <span class="fu">geom_trackgenomicrect</span>(<span class="fu">aes</span>(<span class="at">fill =</span> stain,),<span class="at">add.xaxis =</span> F,<span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb197-6"><a href="nested-zooming.html#cb197-6" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;gneg&quot;</span> <span class="ot">=</span> <span class="st">&quot;white&quot;</span>,<span class="st">&quot;gpos25&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey75&quot;</span>,<span class="st">&quot;gpos50&quot;</span> <span class="ot">=</span> <span class="st">&quot;grey50&quot;</span>,</span>
+<span id="cb197-7"><a href="nested-zooming.html#cb197-7" tabindex="-1"></a>                               <span class="st">&quot;gpos100&quot;</span> <span class="ot">=</span> <span class="st">&quot;black&quot;</span>,<span class="st">&quot;gvar&quot;</span> <span class="ot">=</span> <span class="st">&quot;black&quot;</span>,<span class="st">&quot;acen&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb197-8"><a href="nested-zooming.html#cb197-8" tabindex="-1"></a>                               <span class="st">&quot;stalk&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb197-9"><a href="nested-zooming.html#cb197-9" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom,<span class="at">color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb197-10"><a href="nested-zooming.html#cb197-10" tabindex="-1"></a>                         <span class="at">geom =</span> <span class="st">&quot;rect&quot;</span>)</span></code></pre></div>
+<p><img src="local_images/185.png" style="width:100.0%" /></p>
+<p><strong>geom_trackgenomictile</strong>:</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="nested-zooming.html#cb198-1" tabindex="-1"></a>bed <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">500</span>, <span class="at">nc =</span> <span class="dv">4</span>)</span>
+<span id="cb198-2"><a href="nested-zooming.html#cb198-2" tabindex="-1"></a>bed_long <span class="ot">&lt;-</span> <span class="fu">bedMatTolong</span>(bed)</span>
+<span id="cb198-3"><a href="nested-zooming.html#cb198-3" tabindex="-1"></a></span>
+<span id="cb198-4"><a href="nested-zooming.html#cb198-4" tabindex="-1"></a><span class="fu">ggcirclize</span>(bed_long,<span class="fu">aes</span>(<span class="at">end =</span> <span class="dv">360</span>,<span class="at">r0 =</span> <span class="fl">0.6</span>,<span class="at">r1 =</span> <span class="fl">0.8</span>,</span>
+<span id="cb198-5"><a href="nested-zooming.html#cb198-5" tabindex="-1"></a>                        <span class="at">chr =</span> chr,<span class="at">gstart =</span> start,<span class="at">gend =</span> end,</span>
+<span id="cb198-6"><a href="nested-zooming.html#cb198-6" tabindex="-1"></a>                        <span class="at">genome =</span> <span class="st">&quot;hg19&quot;</span>,</span>
+<span id="cb198-7"><a href="nested-zooming.html#cb198-7" tabindex="-1"></a>                        <span class="at">x =</span> x,<span class="at">y =</span> y,<span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb198-8"><a href="nested-zooming.html#cb198-8" tabindex="-1"></a>  <span class="fu">geom_trackgenomictile</span>(<span class="at">strip.label =</span> T,<span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb198-9"><a href="nested-zooming.html#cb198-9" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">&quot;green&quot;</span>,<span class="at">mid =</span> <span class="st">&quot;white&quot;</span>,<span class="at">high =</span> <span class="st">&quot;red&quot;</span>,<span class="at">midpoint =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb198-10"><a href="nested-zooming.html#cb198-10" tabindex="-1"></a>  <span class="fu">geom_genomicNestedZoom</span>(<span class="at">zoom_data =</span> zoom,<span class="at">geom =</span> <span class="st">&quot;tile&quot;</span>,<span class="at">color =</span> <span class="cn">NA</span>)</span></code></pre></div>
+<p><img src="local_images/186.png" style="width:100.0%" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="add-significant-marks.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="adding-gene-labels.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/07-Nested_zooming.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

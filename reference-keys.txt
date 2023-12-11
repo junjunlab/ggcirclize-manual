@@ -58,3 +58,8 @@ matrix-mark-annotation
 geom_trackgenomictile2
 single-mark-annotation-1
 matrix-mark-annotation-1
+nested-zooming
+intro
+zooming-with-other-layers
+adding-gene-labels
+createing-your-own-genome-track
